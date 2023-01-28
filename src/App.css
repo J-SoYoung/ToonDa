@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 깔끔폰트 */
+@font-face {
+  font-family: "SUIT-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 깔끔폰트 */
+@font-face {
+  font-family: "MonoplexKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 귀여움 */
+@font-face {
+  font-family: "KyoboHandwriting2021sjy";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

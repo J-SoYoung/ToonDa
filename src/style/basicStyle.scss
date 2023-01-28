@@ -1,0 +1,22 @@
+@import "./utils.scss";
+
+.SassComponent {
+  display: flex;
+  .box {
+    background-color: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &.red {
+      background-color: $red;
+      @include square(1);
+    }
+    &.green {
+      background-color: $green;
+      @include square(2);
+    }
+    &.yellow {
+      background-color: $yello;
+      @include square(3);
+    }
+  }
+}
