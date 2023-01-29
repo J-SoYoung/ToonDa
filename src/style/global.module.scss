@@ -1,4 +1,4 @@
-@import "./utils.scss";
+@import "./utils.module.scss";
 
 * {
   margin: 0;
@@ -11,13 +11,13 @@
   font-family: $EduFont;
   font-size: $basicSize;
   letter-spacing: 0.5px;
-  background-color: $white;
 }
 body {
-  width: 420px;
-  height: 870px;
+  width: 440px;
+  height: 100vh;
   margin: 0 auto;
   border: 1px solid $lightgray;
+  background-color: $BGgray;
 }
 button {
   cursor: pointer;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { emailRegex, passwordRegex } from "../common/regEx";
+import { DeveloperInfo } from "../components/DeveloperInfo";
 import { useInput } from "../hooks/useInput";
 import styles from "../style/LoginPageStyle.module.scss";
 
@@ -62,84 +63,87 @@ export const SignupPage = () => {
   };
 
   return (
-    <div className={styles.loginBox}>
-      <div className={styles.signupTitleBox}>
-        <p>Toonda</p>
-        <span>툰다에 오신것을 환영합니다!</span>
-      </div>
+    <>
+      <div className={styles.loginBox}>
+        <div className={styles.signupTitleBox}>
+          <p>Toonda</p>
+          <span>툰다에 오신것을 환영합니다!</span>
+        </div>
 
-      <div className={styles.inputBox}>
-        <div className={styles.inputList}>
-          <p>이메일</p>
-          <div className={styles.subCheck}>
-            <input
-              type="email"
-              value={email || ""}
-              onChange={onChangeEmail}
-              placeholder="이메일 주소를 입력하세요"
-              // readOnly={emailDoubleCheck ? true : false}
-            />
-            <button onClick={handleEmailDoubleCheck}>중복확인</button>
+        <div className={styles.inputBox}>
+          <div className={styles.inputList}>
+            <p>이메일</p>
+            <div className={styles.subCheck}>
+              <input
+                type="email"
+                value={email || ""}
+                onChange={onChangeEmail}
+                placeholder="이메일 주소를 입력하세요"
+                // readOnly={emailDoubleCheck ? true : false}
+              />
+              <button onClick={handleEmailDoubleCheck}>중복확인</button>
+            </div>
+            {!emailDoubleCheck ? (
+              <label
+                className={emailDoubleCheck ? styles.default : styles.warning}
+              >
+                이메일 형식을 확인하세요
+              </label>
+            ) : null}
           </div>
-          {!emailDoubleCheck ? (
-            <label
-              className={emailDoubleCheck ? styles.default : styles.warning}
-            >
-              이메일 형식을 확인하세요
+
+          <div className={styles.inputList}>
+            <p>닉네임 </p>
+            <div className={styles.subCheck}>
+              <input
+                type="text"
+                value={username || ""}
+                onChange={onChangeUsername}
+                placeholder="닉네임을 작성해주세요"
+                // readOnly={usernameDoubleCheck ? true :  false}
+              />
+              <button onClick={handleUsernameDoubleCheck}>중복확인</button>
+            </div>
+            <label className={usernameCheck ? styles.default : styles.warning}>
+              닉네임은 5-10자 입력하세요
             </label>
-          ) : null}
-        </div>
-
-        <div className={styles.inputList}>
-          <p>닉네임 </p>
-          <div className={styles.subCheck}>
-            <input
-              type="text"
-              value={username || ""}
-              onChange={onChangeUsername}
-              placeholder="닉네임을 작성해주세요"
-              // readOnly={usernameDoubleCheck ? true :  false}
-            />
-            <button onClick={handleUsernameDoubleCheck}>중복확인</button>
           </div>
-          <label className={usernameCheck ? styles.default : styles.warning}>
-            닉네임은 5-10자 입력하세요
-          </label>
+
+          <div className={styles.inputList}>
+            <p>비밀번호 </p>
+            <input
+              type="password"
+              value={password || ""}
+              onChange={onChangePassword}
+              placeholder="비밀번호를 작성해 주세요"
+            />
+            <label warning={"default"}>
+              {/* <label warning={passwordRegExCheck ? false : true}> */}
+              영어 대소문자, 숫자, 특수문자를 포함한 8-16자를 입력하세요
+            </label>
+          </div>
+
+          <div className={styles.inputList}>
+            <p>비밀번호 재확인 </p>
+            <input
+              type="password"
+              value={passwordCheck || ""}
+              onChange={onChangePasswordCheck}
+              placeholder="비밀번호를 확인 주세요"
+            />
+            <label warning={"default"}>
+              {/* <span warning={passwordDoubleCheck ? false : true}> */}
+              동일한 비밀번호를 입력하세요
+            </label>
+          </div>
         </div>
 
-        <div className={styles.inputList}>
-          <p>비밀번호 </p>
-          <input
-            type="password"
-            value={password || ""}
-            onChange={onChangePassword}
-            placeholder="비밀번호를 작성해 주세요"
-          />
-          <label warning={"default"}>
-            {/* <label warning={passwordRegExCheck ? false : true}> */}
-            영어 대소문자, 숫자, 특수문자를 포함한 8-16자를 입력하세요
-          </label>
-        </div>
-
-        <div className={styles.inputList}>
-          <p>비밀번호 재확인 </p>
-          <input
-            type="password"
-            value={passwordCheck || ""}
-            onChange={onChangePasswordCheck}
-            placeholder="비밀번호를 확인 주세요"
-          />
-          <label warning={"default"}>
-            {/* <span warning={passwordDoubleCheck ? false : true}> */}
-            동일한 비밀번호를 입력하세요
-          </label>
+        <div className={styles.buttonBox}>
+          <button onClick={handleClickSignup}>가입하기</button>
+          <span onClick={goLogin}>로그인 하러 가기</span>
         </div>
       </div>
-
-      <div className={styles.buttonBox}>
-        <button onClick={handleClickSignup}>가입하기</button>
-        <span onClick={goLogin}>로그인 하러 가기</span>
-      </div>
-    </div>
+      <DeveloperInfo />
+    </>
   );
 };

@@ -1,0 +1,50 @@
+@import "./utils.module.scss";
+
+.devBox {
+  width: 100%;
+  @include basicPadding();
+  background-color: $white;
+  & > p {
+    margin-bottom: 30px;
+    padding: 15px 0 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-align: center;
+    font-size: $middleTitle;
+    font-weight: $bold;
+    background-color: $BGgray;
+  }
+}
+.dev {
+  @include basicAlign();
+  justify-content: flex-start;
+  margin-bottom: 25px;
+}
+.imgBox {
+  & > p {
+    font-size: $middleSize;
+  }
+  img {
+    @include square(7);
+    margin-right: 10px;
+  }
+}
+.infoBox {
+  width: 100%;
+  p {
+    width: 100%;
+    height: 25px;
+    line-height: 30px;
+    margin-bottom: 7px;
+    padding-left: 10px;
+  }
+  p:hover {
+    background-color: $lightgray;
+    border-radius: $radius-basic;
+  }
+  p:first-child {
+    font-size: $middleSize;
+    font-weight: $bold;
+    margin-bottom: 10px;
+  }
+}
