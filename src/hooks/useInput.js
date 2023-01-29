@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { emailRegex } from "../common/regEx";
 
 export const useInput = () => {
   const [value, setValue] = useState("");
