@@ -1,0 +1,117 @@
+@import "./utils.module.scss";
+
+.warning {
+  color: red;
+}
+.default {
+  color: $darkgray;
+}
+.loginBox {
+  @include basicPadding();
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: $white;
+}
+
+.logoBox {
+  width: 100%;
+  height: 230px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  box-sizing: border;
+  margin-bottom: 50px;
+  h2 {
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -100%);
+    font-family: $LogoFont;
+    font-size: $mainTitle;
+    color: $black;
+  }
+  img {
+    @include circle(3);
+  }
+}
+.signupTitleBox {
+  @include basicAlignColumn();
+  width: 100%;
+  margin-bottom: 50px;
+  & > p {
+    margin-bottom: -5px;
+    font-family: $LogoFont;
+    font-size: $subTitle;
+  }
+  & > span {
+  }
+}
+
+.inputBox {
+  width: 100%;
+  .inputList {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    color: $darkgray;
+    & > p {
+      margin-bottom: 8px;
+      font-size: $middle;
+      font-weight: 700;
+    }
+    input {
+      width: 100%;
+      height: 52px;
+      padding-left: 12px;
+      border-radius: $radius-basic;
+      background-color: $BGgray;
+      outline: none;
+      font-size: $basicSize;
+    }
+    input::placeholder {
+      color: $darkgray;
+      font-size: $basicSize;
+    }
+    label {
+      margin-top: 10px;
+      font-size: $smallSize;
+    }
+    .subCheck {
+      @include basicAlign();
+      button {
+        @include buttonStyle(50);
+      }
+    }
+  }
+}
+.buttonBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  text-align: center;
+  color: #666666;
+  & > button {
+    margin: 16px 0;
+    height: 52px;
+    border-radius: $radius-basic;
+    font-weight: $bold;
+    color: $white;
+    background-color: $green;
+  }
+  & > span {
+    color: $darkgray;
+    font-size: $basicSize;
+  }
+  span:last-child {
+    cursor: pointer;
+  }
+}
