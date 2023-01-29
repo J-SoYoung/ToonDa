@@ -1,0 +1,86 @@
+@import "./utils.module.scss";
+
+.homeNav {
+  @include basicAlign();
+  padding: 0 24px;
+  height: 60px;
+  background-color: $green;
+  margin-bottom: 10px;
+  p {
+    font-size: $middleSize;
+    font-weight: $bold;
+    font-family: $LogoFont;
+    color: $white;
+  }
+}
+
+.homeTab {
+  @include basicAlign();
+  padding: 0 24px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  button {
+    width: 110px;
+    border-bottom: 2px solid $darkgray;
+    color: $darkgray;
+    background-color: $white;
+    &:focus {
+      border-bottom: 2px solid $green;
+      color: $green;
+    }
+  }
+}
+
+.diaryList {
+  @include basicAlign();
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 3px;
+  box-sizing: border-box;
+}
+.diaryItem {
+  position: relative;
+  width: 136px;
+  margin: 4px;
+  .imgBackground {
+    height: 200px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .content {
+    height: 80px;
+    @include basicAlignColumn();
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    opacity: 0.8;
+    background-color: $white;
+    & > p {
+      font-size: $basicSize;
+    }
+    .subContent {
+      @include basicAlign();
+      img {
+        width: 15px;
+        height: 15px;
+        margin-right: 4px;
+      }
+      div {
+        @include basicAlign();
+        padding-top: 5px;
+        box-sizing: border-box;
+        p {
+          margin-right: 4px;
+          font-size: $smallSize;
+          color: $darkgray;
+          font-weight: $light;
+        }
+      }
+    }
+  }
+}
