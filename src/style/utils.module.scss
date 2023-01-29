@@ -13,10 +13,11 @@ $pass: green;
 // font-size
 $smallSize: 15px;
 $basicSize: 17px;
-$middle: 20px;
+$middleSize: 20px;
 
 $mainTitle: 60px;
 $subTitle: 40px;
+$middleTitle: 25px;
 $navTitle: 16px;
 
 // font-weight
@@ -39,7 +40,7 @@ $radius-big: 15px;
 }
 
 @mixin basicPadding() {
-  padding: 16px;
+  padding: 24px;
   box-sizing: border-box;
 }
 
@@ -49,6 +50,14 @@ $radius-big: 15px;
   width: $calculated;
   height: $calculated;
   border-radius: 50%;
+}
+
+@mixin square($size) {
+  $calculated: 20px * $size;
+  width: $calculated;
+  height: $calculated;
+  border-radius: $radius-basic;
+  object-fit: cover;
 }
 
 @mixin buttonStyle($size) {
