@@ -32,6 +32,45 @@
   }
 }
 
+.homeUserInfo {
+  padding: 20px 40px;
+  box-sizing: border-box;
+  height: 200px;
+  margin-bottom: 15px;
+  & > h2 {
+    font-size: $middleTitle;
+    text-align: center;
+    margin: 10px 0 15px;
+  }
+  .userInfo {
+    @include basicAlign();
+    & > img {
+      @include square(5);
+    }
+    & > div {
+      @include basicAlignColumn();
+      padding-top: 10px;
+      border-left: 1px solid $lightgray;
+      margin-left: 20px;
+      & > span {
+        margin-bottom: 15px;
+        text-align: center;
+        word-break: keep-all;
+        line-height: 22px;
+      }
+      & > button {
+        padding: 10px 10px 5px;
+        box-sizing: border-box;
+        border-radius: $radius-basic;
+        font-size: 12px;
+        font-weight: $light;
+        color: $white;
+        background-color: $green;
+      }
+    }
+  }
+}
+
 .diaryList {
   @include basicAlign();
   justify-content: flex-start;
