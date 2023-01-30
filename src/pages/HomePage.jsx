@@ -3,41 +3,29 @@ import styles from "../style/homePageStyle.module.scss";
 import Icon_subscribe from "../assets/subscribe.svg";
 import { HomeNav } from "../components/navBar/HomeNav";
 import { HomeTab } from "../components/navBar/HomeTab";
+import { MyDiaryUserInfo } from "../components/MyDiaryUserInfo";
 
 export const HomePage = () => {
+  const [mydiary, setMydiary] = useState(true);
+
   const handleClickTabList = (keyword) => {
     console.log(keyword);
   };
   return (
     <>
       <HomeNav />
+      {mydiary ? <MyDiaryUserInfo /> : null}
       <HomeTab />
-      {/* <div className={styles.homeTab}>
-        <button
-          onClick={() => {
-            handleClickTabList("new");
-          }}
-        >
-          최신
-        </button>
-        <button
-          onClick={() => {
-            handleClickTabList("subscribe");
-          }}
-        >
-          구독중인
-        </button>
-        <button
-          onClick={() => {
-            handleClickTabList("mydiary");
-          }}
-        >
-          MyDiary
-        </button>
-      </div> */}
 
       <div>
         <div className={styles.diaryList}>
+          {mydiary ? (
+            <div>
+              <img src="/img/icon/newDiary.png" />
+              <p>새 툰 다이어리 만들기</p>
+            </div>
+          ) : null}
+
           <div className={styles.diaryItem}>
             <div className={styles.imgBackground}>
               <img src="/img/2.jpg" />
