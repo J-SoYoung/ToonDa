@@ -1,9 +1,11 @@
 import React from "react";
+import { saveItem } from "../../common/storage";
 import styles from "../../style/homePageStyle.module.scss";
 
 export const HomeTab = () => {
   const handleClickTabList = (keyword) => {
-    console.log(keyword);
+    saveItem("keyword", keyword);
+    // console.log(keyword);
   };
 
   return (
