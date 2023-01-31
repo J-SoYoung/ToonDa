@@ -39,7 +39,7 @@ $radius-big: 15px;
 }
 
 @mixin basicPadding() {
-  padding: 24px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -56,6 +56,13 @@ $radius-big: 15px;
   width: $calculated;
   height: $calculated;
   border-radius: $radius-basic;
+  object-fit: cover;
+}
+
+@mixin BGimg($size) {
+  $calculated: 10px * $size;
+  width: 440px;
+  height: $calculated;
   object-fit: cover;
 }
 
@@ -78,6 +85,39 @@ $radius-big: 15px;
 @mixin basicAlignColumn() {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+}
+
+// Default options
+$defaultDuration: 0.3s;
+$primaryColour: #ececec;
+$secondaryColour: #666;
+$shadowColour: rgba(0, 0, 0, 0.6);
+
+@mixin hideTapHighlightColor() {
+  //요소 선택할 때 하이라이트 색상 방지
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+@mixin hardwareAccel() {
+  transform: translateZ(0);
+}
+@mixin improveAntiAlias() {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+/* Glow */
+@mixin glow() {
+  // .glow {
+  display: inline-block;
+  transition-duration: $defaultDuration;
+  transition-property: box-shadow;
+
+  @include hideTapHighlightColor();
+  @include hardwareAccel();
+  @include improveAntiAlias();
+
+  &:hover {
+    box-shadow: 1px 1px 5px $lightgray;
+  }
 }

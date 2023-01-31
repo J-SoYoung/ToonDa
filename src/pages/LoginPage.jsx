@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { DeveloperInfo } from "../components/DeveloperInfo";
 import { useInput } from "../hooks/useInput";
-import styles from "../style/LoginPageStyle.module.scss";
+import styles from "../style/loginPageStyle.module.scss";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
