@@ -5,8 +5,13 @@ export const HomeNav = () => {
   return (
     <div className={styles.homeNav}>
       <p>ToonDa</p>
-      <div>
-        <img src="/img/icon/search.png" />
+      <div >
+        <p>
+          <img src="/img/icon/search.png" />
+        </p>
+        <p>
+          <img src="/img/icon/addPencil.png" />
+        </p>
       </div>
     </div>
   );

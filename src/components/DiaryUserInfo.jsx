@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../style/homePageStyle.module.scss";
 
-export const MyDiaryUserInfo = () => {
+export const DiaryUserInfo = () => {
   return (
     <div className={styles.homeUserInfo}>
       <h2>나의 툰 다이어리</h2>

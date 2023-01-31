@@ -7,6 +7,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { MyProfile } from "./pages/MyProfile";
 import { PostPage } from "./pages/PostPage";
 import { SignupPage } from "./pages/SignupPage";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/main" element={<HomePage />} />
         <Route path="/post" element={<PostPage />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/myprofile" element={<MyProfile />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
   );
