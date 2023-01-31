@@ -25,3 +25,26 @@ body {
 button {
   cursor: pointer;
 }
+
+a {
+  &:hover {
+    color: inherit;
+  }
+  &:ac {
+    color: inherit;
+  }
+
+}
+.notFoundPage {
+  @include basicAlignColumn();
+  width: 350px;
+  height: 800px;
+  margin: 0 auto;
+  & > div {
+    @include basicAlignColumn();
+    p {
+      margin-bottom: 15px;
+      font-size: $middleTitle;
+    }
+  }
+}
