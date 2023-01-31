@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { emailRegex, passwordRegex } from "../common/regEx";
 import { DeveloperInfo } from "../components/DeveloperInfo";
 import { useInput } from "../hooks/useInput";
-import styles from "../style/LoginPageStyle.module.scss";
+import styles from "../style/loginPageStyle.module.scss";
 
 export const SignupPage = () => {
   const navigate = useNavigate();
