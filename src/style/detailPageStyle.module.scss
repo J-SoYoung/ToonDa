@@ -1,0 +1,26 @@
+@import "./utils.module.scss";
+
+.detailBox {
+}
+.detailMain {
+  position: relative;
+  & > img {
+    @include BGimg(50);
+  }
+  .diaryInfoBox {
+    height: 50px;
+    position: absolute;
+    top: 450px;
+    right: 0;
+    @include basicAlign();
+    justify-content: flex-start;
+    transform: translateY(-50%);
+    width: 90%;
+    border: 1px solid red;
+    & > img {
+      @include circle(2.5);
+      margin-right: 10px;
+      position: absolute;
+    }
+  }
+}
