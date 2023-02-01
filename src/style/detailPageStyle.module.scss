@@ -1,26 +1,62 @@
 @import "./utils.module.scss";
 
+.detail {
+  height: 100vh;
+  background-color: white;
+}
 .detailBox {
+  width: 440px;
 }
 .detailMain {
   position: relative;
-  & > img {
-    @include BGimg(50);
+  background-color: white;
+  .imgBox {
+    // border: 3px solid red;
+    width: 100%;
+    & > img {
+      width: 100%;
+      @include BGimg(50);
+    }
   }
   .diaryInfoBox {
-    height: 50px;
-    position: absolute;
-    top: 450px;
-    right: 0;
-    @include basicAlign();
-    justify-content: flex-start;
-    transform: translateY(-50%);
-    width: 90%;
-    border: 1px solid red;
-    & > img {
-      @include circle(2.5);
-      margin-right: 10px;
-      position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -6px;
+    & > div {
+      height: 80px;
+      @include basicAlign();
+      justify-content: flex-start;
+      width: 90%;
+      padding-left: 10px;
+      box-sizing: border-box;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      background-color: $green;
+      color: $white;
+      & > img {
+        @include circle(2.5);
+        margin-right: 10px;
+      }
+      & > div {
+        padding-top: 10px;
+        box-sizing: border-box;
+        p {
+          line-height: 22px;
+          font-size: $smallSize;
+        }
+        p:first-child {
+          font-size: $middleSize;
+        }
+      }
+    }
+  }
+  .diaryTitle {
+    height: 295px;
+    @include basicPadding();
+    margin-top: 20px;
+    p {
+      font-size: $subMiddleTitle;
+      margin-top: 10px;
     }
   }
 }
