@@ -30,7 +30,7 @@
     @include basicAlign();
   }
   .mainPage {
-    .mainPage > p {
+    & > p {
       margin-right: 8px;
       cursor: pointer;
     }

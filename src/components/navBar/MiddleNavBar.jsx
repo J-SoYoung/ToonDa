@@ -8,10 +8,12 @@ import { ReactComponent as Icon_Comment } from "../../assets/green_comment.svg";
 import { ReactComponent as Icon_StarStroke } from "../../assets/green_star_stroke.svg";
 import { ReactComponent as Icon_StarFull } from "../../assets/green_star_full.svg";
 import { ReactComponent as Icon_Subscribe } from "../../assets/green_subscribe.svg";
+import { useNavigate } from "react-router-dom";
 
 export const MiddleNavBar = () => {
-  // const [main, setMain] = useState(true);
-  const [isMain, setIsMain] = useState(false);
+  const navigate = useNavigate();
+  const [isMain, setIsMain] = useState(true);
+  // const [isMain, setIsMain] = useState(false);
   const [isLike, setIsLike] = useState(false);
 
   return (
@@ -19,11 +21,19 @@ export const MiddleNavBar = () => {
       <div className={styles.middleLeftBar}>
         {isMain ? (
           <div className={styles.mainPage}>
-            <p>
+            <p
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               <Icon_ChevronLeft />
             </p>
             <div>
-              <p>
+              <p
+                onClick={() => {
+                  navigate("/subscribe");
+                }}
+              >
                 <Icon_Subscribe />
               </p>
               <span>1명 구독중</span>
@@ -31,10 +41,16 @@ export const MiddleNavBar = () => {
           </div>
         ) : (
           <div className={styles.listPage}>
-            <p>
+            <p
+              onClick={() => {
+                navigate("/comment");
+              }}
+            >
               <Icon_Comment />
             </p>
-            <p>{isLike ? <Icon_StarFull /> : <Icon_StarStroke />}</p>
+            <p onClick={() => alert("스타")}>
+              {isLike ? <Icon_StarFull /> : <Icon_StarStroke />}
+            </p>
           </div>
         )}
       </div>
@@ -43,10 +59,18 @@ export const MiddleNavBar = () => {
         <p>
           <Icon_Share />
         </p>
-        <p>
+        <p
+          onClick={() => {
+            navigate("/post");
+          }}
+        >
           <Icon_Pencil />
         </p>
-        <p>
+        <p
+          onClick={() => {
+            alert("모달로 삭제/수정");
+          }}
+        >
           <Icon_Menu />
         </p>
       </div>

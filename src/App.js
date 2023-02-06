@@ -9,6 +9,8 @@ import { PostPage } from "./pages/PostPage";
 import { SignupPage } from "./pages/SignupPage";
 import { NotFound } from "./pages/NotFound";
 import { SearchPage } from "./pages/SearchPage";
+import { CommentPage } from "./pages/CommentPage";
+import { SubscribePage } from "./pages/SubscribePage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/main" element={<HomePage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
+        <Route path="/comment" element={<CommentPage />} />
+        <Route path="/subscribe" element={<SubscribePage />} />
         <Route path="/myprofile" element={<MyProfile />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/*" element={<NotFound />} />
