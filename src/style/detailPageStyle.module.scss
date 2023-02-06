@@ -11,7 +11,6 @@
   position: relative;
   background-color: white;
   .imgBox {
-    // border: 3px solid red;
     width: 100%;
     & > img {
       width: 100%;
@@ -51,12 +50,40 @@
     }
   }
   .diaryTitle {
-    height: 295px;
+    height: 200px;
     @include basicPadding();
     margin-top: 20px;
     p {
       font-size: $subMiddleTitle;
       margin-top: 10px;
+    }
+  }
+}
+.detailList {
+  height: 100%;
+  background-color: $white;
+  .ListSubTitle {
+    @include basicAlign();
+    @include basicPadding();
+    height: 60px;
+    color: $white;
+    background-color: $green;
+    font-size: $middleSize;
+  }
+  .imgBox {
+    img {
+      width: 100%;
+      @include BGimg(50);
+    }
+  }
+  .diaryTitle {
+    @include basicAlign();
+    @include basicPadding();
+    justify-content: flex-start;
+    height: 190px;
+    span {
+      font-size: $middleSize;
+      line-height: 30px;
     }
   }
 }
