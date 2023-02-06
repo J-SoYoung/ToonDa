@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../../style/navFooterStyle.module.scss";
-import { ReactComponent as ChevronLeft } from "../../assets/chevron-left.svg";
-import { ReactComponent as Menu } from "../../assets/menu.svg";
+import { ReactComponent as ChevronLeft } from "../../assets/green_chevron_left.svg";
+import { ReactComponent as Menu } from "../../assets/green_menu.svg";
 import { ReactComponent as Pencil } from "../../assets/pencil.svg";
-import { ReactComponent as Share } from "../../assets/share.svg";
+import { ReactComponent as Share } from "../../assets/green_share.svg";
 
 export const FooterBar = () => {
   return (

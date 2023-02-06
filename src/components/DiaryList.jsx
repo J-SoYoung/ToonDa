@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../style/homePageStyle.module.scss";
-import Icon_subscribe from "../assets/subscribe.svg";
+import Icon_subscribe from "../assets/black_subscribe.svg";
 import { Link } from "react-router-dom";
 
 export const DiaryList = () => {

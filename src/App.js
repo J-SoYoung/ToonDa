@@ -8,6 +8,7 @@ import { MyProfile } from "./pages/MyProfile";
 import { PostPage } from "./pages/PostPage";
 import { SignupPage } from "./pages/SignupPage";
 import { NotFound } from "./pages/NotFound";
+import { SearchPage } from "./pages/SearchPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/post" element={<PostPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/myprofile" element={<MyProfile />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
