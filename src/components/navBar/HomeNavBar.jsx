@@ -5,14 +5,14 @@ import { ReactComponent as Icon_Pencil } from "../../assets/pencil.svg";
 import styles from "../../style/homePageStyle.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 
-export const HomeNav = () => {
+export const HomeNavBar = () => {
   const navigate = useNavigate();
 
   return (
     <div className={styles.homeNav}>
       <p
         onClick={() => {
-          navigate("/main");
+          navigate("/home");
         }}
       >
         ToonDa
