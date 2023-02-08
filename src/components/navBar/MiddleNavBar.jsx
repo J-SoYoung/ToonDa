@@ -19,15 +19,15 @@ export const MiddleNavBar = () => {
   return (
     <div className={styles.middleNavBar}>
       <div className={styles.middleLeftBar}>
-        {isMain ? (
-          <div className={styles.mainPage}>
-            <p
-              onClick={() => {
-                navigate(-1);
-              }}
-            >
-              <Icon_ChevronLeft />
-            </p>
+        <div className={styles.mainPage}>
+          <p
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <Icon_ChevronLeft />
+          </p>
+          {isMain ? (
             <div
               onClick={() => {
                 navigate("/subscribe");
@@ -38,21 +38,21 @@ export const MiddleNavBar = () => {
               </p>
               <span>1명 구독중</span>
             </div>
-          </div>
-        ) : (
-          <div className={styles.listPage}>
-            <p
-              onClick={() => {
-                navigate("/comment");
-              }}
-            >
-              <Icon_Comment />
-            </p>
-            <p onClick={() => alert("스타")}>
-              {isLike ? <Icon_StarFull /> : <Icon_StarStroke />}
-            </p>
-          </div>
-        )}
+          ) : (
+            <div className={styles.listPage}>
+              <p
+                onClick={() => {
+                  navigate("/comment");
+                }}
+              >
+                <Icon_Comment />
+              </p>
+              <p onClick={() => alert("스타")}>
+                {isLike ? <Icon_StarFull /> : <Icon_StarStroke />}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className={styles.middleRightBar}>
