@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styles from "../style/homePageStyle.module.scss";
 
-import { HomeNav } from "../components/navBar/HomeNav";
+import { ReactComponent as Icon_DiaryAdd } from "../assets/black_diaryadd.svg";
+
+import { HomeNavBar } from "../components/navBar/HomeNavBar";
 import { HomeTab } from "../components/navBar/HomeTab";
 import { DiaryUserInfo } from "../components/DiaryUserInfo";
 import { useNavigate } from "react-router-dom";
 import { saveItem } from "../common/storage";
 import { DiaryList } from "../components/DiaryList";
-import { FooterBar } from "../components/navBar/FooterBar";
 
 export const HomePage = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export const HomePage = () => {
   };
   return (
     <>
-      <HomeNav />
+      <HomeNavBar />
       {mydiary ? <DiaryUserInfo /> : null}
       <HomeTab />
 
@@ -32,7 +33,7 @@ export const HomePage = () => {
                 navigate("/post");
               }}
             >
-              <img src="/img/icon/newDiary.png" />
+              <Icon_DiaryAdd />
               <p>
                 새 툰 다이어리
                 <br />
