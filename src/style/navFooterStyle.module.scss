@@ -46,15 +46,12 @@
   }
   .mainPage {
     & > p {
-      margin-right: 8px;
+      margin-right: 10 px;
       cursor: pointer;
     }
     > div {
       @include basicAlign();
       cursor: pointer;
-      p {
-        margin-right: 4px;
-      }
     }
   }
   .listPage > p {
@@ -75,9 +72,7 @@
     cursor: pointer;
   }
   & > p:last-child {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    cursor: pointer;
   }
 }
 
