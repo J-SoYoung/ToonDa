@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../style/navStyle.module.scss";
+import styles from "../../style/navFooterStyle.module.scss";
 import { ReactComponent as Icon_ChevronLeft } from "../../assets/green_chevron_left.svg";
 import { ReactComponent as Icon_Menu } from "../../assets/green_menu.svg";
 import { ReactComponent as Icon_Pencil } from "../../assets/green_pencil.svg";
@@ -12,8 +12,8 @@ import { useNavigate } from "react-router-dom";
 
 export const MiddleNavBar = () => {
   const navigate = useNavigate();
-  const [isMain, setIsMain] = useState(true);
-  // const [isMain, setIsMain] = useState(false);
+  // const [isMain, setIsMain] = useState(true);
+  const [isMain, setIsMain] = useState(false);
   const [isLike, setIsLike] = useState(false);
 
   return (
@@ -28,12 +28,12 @@ export const MiddleNavBar = () => {
             >
               <Icon_ChevronLeft />
             </p>
-            <div>
-              <p
-                onClick={() => {
-                  navigate("/subscribe");
-                }}
-              >
+            <div
+              onClick={() => {
+                navigate("/subscribe");
+              }}
+            >
+              <p>
                 <Icon_Subscribe />
               </p>
               <span>1명 구독중</span>

@@ -1,0 +1,70 @@
+@import "./utils.module.scss";
+
+.commentBox {
+  // position: relative;
+}
+.commentViewBox {
+  @include basicAlign();
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 80px 20px 60px;
+  box-sizing: border-box;
+  background-color: $white;
+  .commentList {
+    width: 100%;
+    .commentInfo {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border-bottom: 1px solid $lightgray;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      img {
+        @include circle(1.5);
+        margin-right: 10px;
+      }
+      .commentUserInfo {
+        height: 48px;
+        padding-top: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        & > p:first-child {
+          font-size: $middleSize;
+          margin-bottom: 4px;
+        }
+        & > p:last-child {
+          font-size: $smallSize;
+        }
+      }
+      .comment {
+        padding: 8px 0;
+        box-sizing: border-box;
+        font-size: $basicSize;
+      }
+    }
+  }
+}
+.commentInput {
+  position: fixed;
+  bottom: 0;
+  @include basicAlign();
+  width: 438px;
+  height: 60px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-color: $BGgray;
+  border: 1px solid $lightgray;
+  border-radius: 5px;
+  input {
+    width: 100%;
+    height: 80%;
+    background-color: $BGgray;
+    outline: none;
+    font-size: $middleSize;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    background-color: $BGgray;
+  }
+}
