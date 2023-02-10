@@ -1,0 +1,124 @@
+@import "./utils.module.scss";
+
+.postBox {
+  padding-top: 60px;
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+
+.subContent {
+  // border: 1px solid $lightgray;
+  background-color: $BGgray;
+  @include basicAlignColumn();
+  width: 100%;
+  align-items: flex-start;
+  padding: 0 30px;
+  box-sizing: border-box;
+  input {
+    height: 45px;
+    font-size: $basicSize;
+    background-color: $BGgray;
+    font-size: $middleSize;
+
+    outline: none;
+  }
+  .dateBox > input {
+    width: 120px;
+    font-size: $basicSize;
+  }
+  .inputBox > input {
+    width: 380px;
+    // border: 1px solid red;
+  }
+  input::placeholder {
+    font-size: $middleSize;
+    height: 100%;
+  }
+}
+
+.textareaBox {
+  position: relative;
+  margin-bottom: 10px;
+  textarea {
+    width: 100%;
+    height: 175px;
+    resize: none;
+    font-size: $basicSize;
+    overflow: hidden;
+    // 서로 다른 그라디언트로 겹치게 해서 줄을 만드는 듯
+    background-attachment: local;
+    background-image: linear-gradient(to right, white 25px, transparent 25px),
+      linear-gradient(to left, white 25px, transparent 25px),
+      repeating-linear-gradient(
+        white,
+        white 34px,
+        #ccc 35px,
+        #ccc 35px,
+        white 37px
+      );
+    line-height: 38px;
+    padding: 8px 30px;
+    box-sizing: border-box;
+    outline: none;
+  }
+}
+textarea::placeholder {
+  font-size: $basicSize;
+}
+
+.textNumbering {
+  position: absolute;
+  bottom: 0px;
+  right: 25px;
+}
+
+.imgBox {
+  height: 500px;
+  background-color: $BGgray;
+  & > div {
+    width: 100%;
+    border-radius: 8px;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.togglebox {
+  display: flex;
+  justify-content: flex-end;
+  & > label {
+    width: 36px;
+    height: 16px;
+    display: block;
+    position: relative;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 2px 1px rgba(0 0 0 / 15%);
+    cursor: pointer;
+  }
+  .toggleSwitch .toggleButton {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: $green;
+  }
+  & > input:checked ~ .toggleSwitch {
+    background: $green;
+  }
+
+  & > input:checked ~ .toggleSwitch .toggleButton {
+    left: calc(20px);
+    background: #fff;
+  }
+
+  .toggleSwitch,
+  .toggleButton {
+    transition: all 0.2s ease-in;
+  }
+}
