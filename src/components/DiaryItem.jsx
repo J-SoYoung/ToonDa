@@ -3,7 +3,7 @@ import styles from "../style/homePageStyle.module.scss";
 import Icon_subscribe from "../assets/black_subscribe.svg";
 import { Link } from "react-router-dom";
 
-export const DiaryList = () => {
+export const DiaryItem = () => {
   return (
     <Link to="/detail/1">
       <div className={styles.diaryItem}>
