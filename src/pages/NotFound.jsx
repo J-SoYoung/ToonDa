@@ -10,7 +10,7 @@ export const NotFound = () => {
       <div>
         <p>잘못된 페이지입니다.</p>
         <span>
-          <Link to="/main">홈으로 가기</Link>
+          <Link to="/home/new">홈으로 가기</Link>
         </span>
       </div>
       <Lottie animationData={badpage} />
