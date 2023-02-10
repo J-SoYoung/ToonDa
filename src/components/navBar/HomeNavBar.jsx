@@ -12,7 +12,7 @@ export const HomeNavBar = () => {
     <div className={styles.homeNav}>
       <p
         onClick={() => {
-          navigate("/home");
+          navigate("/home/new");
         }}
       >
         ToonDa

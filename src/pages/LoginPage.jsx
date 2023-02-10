@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { DeveloperInfo } from "../components/DeveloperInfo";
 import { useInput } from "../hooks/useInput";
+import { saveItem } from "../service/storage";
 import styles from "../style/loginPageStyle.module.scss";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
   const [email, onChangeEmail] = useInput();
   const [password, onChangePassword] = useInput();
+
+  const handleLogin = () => {
+    navigate("/home/new");
+    saveItem("tabKeyword", "new");
+  };
 
   return (
     <>
@@ -38,7 +44,7 @@ export const LoginPage = () => {
           </div>
         </div>
         <div className={styles.buttonBox}>
-          <button>로그인하기</button>
+          <button onClick={handleLogin}>로그인하기</button>
           <span>또는</span>
           <button>카카오톡으로 로그인하기</button>
           <span onClick={() => navigate("/signup")}>회원가입하러 가기</span>
