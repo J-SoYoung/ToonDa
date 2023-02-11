@@ -3,7 +3,6 @@
 .postBox {
   padding-top: 60px;
   box-sizing: border-box;
-  border: 1px solid red;
 }
 
 .subContent {
@@ -28,7 +27,6 @@
   }
   .inputBox > input {
     width: 380px;
-    // border: 1px solid red;
   }
   input::placeholder {
     font-size: $middleSize;
@@ -45,6 +43,7 @@
     resize: none;
     font-size: $basicSize;
     overflow: hidden;
+
     // 서로 다른 그라디언트로 겹치게 해서 줄을 만드는 듯
     background-attachment: local;
     background-image: linear-gradient(to right, white 25px, transparent 25px),
@@ -73,6 +72,7 @@ textarea::placeholder {
 }
 
 .imgBox {
+  position: relative;
   height: 500px;
   background-color: $BGgray;
   & > div {
@@ -80,8 +80,27 @@ textarea::placeholder {
     border-radius: 8px;
     img {
       width: 100%;
+      height: 100%;
       object-fit: cover;
+      background-size: cover;
     }
+  }
+  .fileLoad {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $darkgray;
+    cursor: pointer;
+  }
+  input[type="file"] {
+    /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
   }
 }
 
