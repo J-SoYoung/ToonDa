@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔폰트 */
+@font-face {
+  font-family: "SUIT-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔폰트 */
+@font-face {
+  font-family: "MonoplexKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+/* 귀여움 */
+@font-face {
+  font-family: "KyoboHandwriting2021sjy";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "GangwonEdu_OTFBoldA";
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.AppBox {
+  width: 440px;
+  height: 100vh;
+  margin: 0 auto;
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:hover {
+  color: inherit;
+}
+a:ac {
+  color: inherit;
+}
+
+.notFoundPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 800px;
+  margin: 0 auto;
+}
+.notFoundPage > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.notFoundPage > div p {
+  margin-bottom: 15px;
+  font-size: 25px;
+}/*# sourceMappingURL=global.module.css.map */

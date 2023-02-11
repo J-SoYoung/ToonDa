@@ -1,0 +1,177 @@
+@charset "UTF-8";
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔폰트 */
+@font-face {
+  font-family: "SUIT-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔폰트 */
+@font-face {
+  font-family: "MonoplexKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+/* 귀여움 */
+@font-face {
+  font-family: "KyoboHandwriting2021sjy";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+.postBox {
+  padding-top: 60px;
+  box-sizing: border-box;
+}
+
+.subContent {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-items: flex-start;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+.subContent input {
+  height: 45px;
+  font-size: 17px;
+  background-color: #f4f4f4;
+  font-size: 20px;
+  outline: none;
+}
+.subContent .dateBox > input {
+  width: 120px;
+  font-size: 17px;
+}
+.subContent .inputBox > input {
+  width: 380px;
+}
+.subContent input::-moz-placeholder {
+  font-size: 20px;
+  height: 100%;
+}
+.subContent input::placeholder {
+  font-size: 20px;
+  height: 100%;
+}
+
+.textareaBox {
+  position: relative;
+  margin-bottom: 10px;
+}
+.textareaBox textarea {
+  width: 100%;
+  height: 175px;
+  resize: none;
+  font-size: 17px;
+  overflow: hidden;
+  background-attachment: local;
+  background-image: linear-gradient(to right, white 25px, transparent 25px), linear-gradient(to left, white 25px, transparent 25px), repeating-linear-gradient(white, white 34px, #ccc 35px, #ccc 35px, white 37px);
+  line-height: 38px;
+  padding: 8px 30px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+textarea::-moz-placeholder {
+  font-size: 17px;
+}
+
+textarea::placeholder {
+  font-size: 17px;
+}
+
+.textNumbering {
+  position: absolute;
+  bottom: 0px;
+  right: 25px;
+}
+
+.imgBox {
+  position: relative;
+  height: 500px;
+  background-color: #f4f4f4;
+}
+.imgBox > div {
+  width: 100%;
+  border-radius: 8px;
+}
+.imgBox > div img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+}
+.imgBox .fileLoad {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #aaaaaa;
+  cursor: pointer;
+}
+.imgBox input[type=file] {
+  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.togglebox {
+  display: flex;
+  justify-content: flex-end;
+}
+.togglebox > label {
+  width: 36px;
+  height: 16px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.togglebox .toggleSwitch .toggleButton {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #0e4f3d;
+}
+.togglebox > input:checked ~ .toggleSwitch {
+  background: #0e4f3d;
+}
+.togglebox > input:checked ~ .toggleSwitch .toggleButton {
+  left: 20px;
+  background: #fff;
+}
+.togglebox .toggleSwitch,
+.togglebox .toggleButton {
+  transition: all 0.2s ease-in;
+}/*# sourceMappingURL=postPageStyle.module.css.map */
