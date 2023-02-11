@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { SubNavBar } from "../components/navBar/SubNavBar";
 import styles from "../style/commentPageStyle.module.scss";
-import { ReactComponent as Icon_Check } from "../assets/gray_check.svg";
+import { ReactComponent as Icon_Check } from "../assets/gray_check_circle.svg";
+import { useInput } from "../hooks/useInput";
 
 export const CommentPage = () => {
-  const [comment, setComment] = useState("");
+  const [comment, onChangeComment] = useInput();
+
+  const handleCommentAdd = (e) => {
+    e.preventDefault();
+    console.log(comment);
+  };
+
   return (
     <>
       <SubNavBar children="공감글" />
@@ -41,18 +48,18 @@ export const CommentPage = () => {
           </div>
         </div>
 
-        <div className={styles.commentInput}>
+        <form className={styles.commentInput} onSubmit={handleCommentAdd}>
           <input
             type="text"
+            name="comment"
+            value={comment || ""}
+            onChange={onChangeComment}
             placeholder="공감글을 작성해주세요"
-            onChange={(e) => {
-              setComment(e.tar.value);
-            }}
           />
-          <button>
+          <button type="button">
             <Icon_Check style={{ width: "30px", height: "30px" }} />
           </button>
-        </div>
+        </form>
       </div>
     </>
   );
