@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styles from "../../style/navFooterStyle.module.scss";
 import { ReactComponent as Icon_ChevronLeft } from "../../assets/white_chevron_left.svg";
 import { ReactComponent as Icon_CheckSqure } from "../../assets/white_check_squre.svg";
+import { ReactComponent as Icon_Search } from "../../assets/white_search.svg";
 import { useNavigate } from "react-router-dom";
 
-export const SubNavBar = ({ children, checkbox }) => {
-  const [isCheck, setIsCheck] = useState(true);
+export const SubNavBar = ({ children, checkbox, search, handleFunc }) => {
   const navigate = useNavigate();
 
   return (
@@ -18,8 +18,14 @@ export const SubNavBar = ({ children, checkbox }) => {
         >
           <Icon_ChevronLeft />
         </p>
-        <p>{children}</p>
-        <p>{isCheck ? <Icon_CheckSqure /> : null} </p>
+        {search ? <input /> : <p>{children}</p>}
+        <p
+          onClick={() => {
+            handleFunc();
+          }}
+        >
+          {checkbox ? <Icon_CheckSqure /> : search ? <Icon_Search /> : null}
+        </p>
       </div>
     </>
   );
