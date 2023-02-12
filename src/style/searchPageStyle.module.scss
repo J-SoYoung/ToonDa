@@ -1,0 +1,49 @@
+@import "./utils.module.scss";
+@import "./navFooterStyle.module.scss";
+
+.searchBar {
+  @include fixNavStyle($green);
+  p {
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+  }
+  .searchInput {
+    width: 280px;
+    height: 35px;
+    border-radius: 8px;
+    outline: none;
+    padding: 5px 0 0 15px;
+    box-sizing: border-box;
+  }
+}
+
+.searchContent {
+  padding: 80px 20px 0;
+  height: 100vh;
+  box-sizing: border-box;
+  & > p {
+    margin-top: 30px;
+    text-align: center;
+    color: $green;
+    font-size: $middleSize;
+  }
+  .searchList {
+    @include basicAlign();
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    img {
+      @include square(4);
+      height: 100px;
+      margin-right: 10px;
+    }
+    & > div {
+      @include basicAlignColumn();
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 100px;
+      padding: 10px 0;
+      box-sizing: border-box;
+    }
+  }
+}
