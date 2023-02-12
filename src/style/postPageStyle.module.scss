@@ -76,6 +76,7 @@ textarea::placeholder {
   height: 500px;
   background-color: $BGgray;
   & > div {
+    height: 100%;
     width: 100%;
     border-radius: 8px;
     img {
@@ -86,6 +87,8 @@ textarea::placeholder {
     }
   }
   .fileLoad {
+    width: 200px;
+    height: 100px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -104,18 +107,48 @@ textarea::placeholder {
   }
 }
 
+.coverBox {
+  height: 100px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.coverTextBox {
+  width: 100%;
+  height: 60px;
+  resize: none;
+  outline: none;
+  // border: 1px solid red;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.coverTextBox::placeholder {
+  font-size: $basicSize;
+}
 .togglebox {
+  position: relative;
+  height: 35px;
   display: flex;
   justify-content: flex-end;
   & > label {
-    width: 36px;
-    height: 16px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 20px;
     display: block;
     position: relative;
     border-radius: 30px;
     background-color: #fff;
     box-shadow: 0 0 2px 1px rgba(0 0 0 / 15%);
     cursor: pointer;
+    span {
+      font-size: 13px;
+      display: block;
+      padding: 5px;
+      box-sizing: border-box;
+    }
   }
   .toggleSwitch .toggleButton {
     width: 12px;
@@ -132,12 +165,20 @@ textarea::placeholder {
   }
 
   & > input:checked ~ .toggleSwitch .toggleButton {
-    left: calc(20px);
+    left: calc(45px);
     background: #fff;
   }
 
   .toggleSwitch,
   .toggleButton {
     transition: all 0.2s ease-in;
+  }
+  .secret {
+    color: $white;
+    text-align: left;
+  }
+  .notSecret {
+    color: $green;
+    text-align: right;
   }
 }
