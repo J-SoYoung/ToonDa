@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { loadItem } from "../common/storage";
 import { SubNavBar } from "./navBar/SubNavBar";
 import { useInput } from "../hooks/useInput";
 
 import styles from "../style/postPageStyle.module.scss";
 import { ReactComponent as Icon_ImageAdd } from "../assets/gray_image_add.svg";
 
-export const PostCover = () => {
-  const [subTitle, onChangeDiaryTitle] = useInput();
-
-  const [isSecret, setIsSecret] = useState(false);
+export const PostList = () => {
   const [imgContain, setImgContain] = useState(false);
+
   const [imageUrl, setImageUrl] = useState("");
+  const [date, setDate] = useState("");
+  const [subTitle, onChangeSubTitle] = useInput();
+  const [textarea, onChangeTextarea] = useInput();
 
   const handleChangeImage = (e) => {
     if (e.target.files[0]) {
@@ -28,44 +30,57 @@ export const PostCover = () => {
     }
   };
 
-  const handlePostCoverAdd = () => {
-    console.log("일기커버 추가", isSecret, imageUrl, subTitle);
+  const handlePostAdd = () => {
+    console.log(
+      "작성페이지 네비게이션 추가버튼",
+      imageUrl,
+      subTitle,
+      date,
+      textarea
+    );
+    setDate("");
+    setImageUrl("");
+    setImgContain(false);
   };
 
   return (
     <>
       <SubNavBar
-        children="새 툰 다이어리 만들기"
+        children="( 일기장 제목 ) 툰 일기"
         checkbox={true}
-        handleFunc={handlePostCoverAdd}
+        handleFunc={handlePostAdd}
       />
 
       <div className={styles.postBox}>
-        <div className={styles.coverBox}>
-          <textarea
-            className={styles.coverTextBox}
-            type="text"
-            maxLength="20"
-            placeholder={`제목을 입력해주세요`}
-            onChange={onChangeDiaryTitle}
-          />
+        <div className={styles.subContent}>
+          <div className={styles.dateBox}>
+            <input
+              type="date"
+              name="date"
+              value={date}
+              onChange={(e) => {
+                setDate(e.target.value);
+              }}
+            />
+          </div>
+          <div className={styles.inputBox}>
+            <input
+              type="text"
+              maxLength="20"
+              placeholder={`부제목을 입력해주세요`}
+              onChange={onChangeSubTitle}
+            />
+          </div>
         </div>
 
-        <div className={styles.togglebox}>
-          <input
-            type="checkbox"
-            id="toggle"
-            hidden
-            onChange={(e) => {
-              setIsSecret(e.target.checked);
-            }}
+        <div className={styles.textareaBox}>
+          <textarea
+            className={styles.textarea}
+            maxLength="100"
+            placeholder="오늘의 툰을 설명해주세요"
+            onChange={onChangeTextarea}
           />
-          <label htmlFor="toggle" className={styles.toggleSwitch}>
-            <span className={styles.toggleButton}></span>
-            <span className={isSecret ? styles.secret : styles.notSecret}>
-              {isSecret ? "비공개" : "공개"}
-            </span>
-          </label>
+          <p className={styles.textNumbering}>{textarea.length}/100</p>
         </div>
 
         <div className={styles.imgBox}>

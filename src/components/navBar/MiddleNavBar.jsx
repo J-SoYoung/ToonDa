@@ -61,7 +61,7 @@ export const MiddleNavBar = () => {
         </p>
         <p
           onClick={() => {
-            navigate("/post");
+            navigate("/post/list");
           }}
         >
           <Icon_Pencil />
