@@ -6,7 +6,6 @@
 }
 
 .subContent {
-  // border: 1px solid $lightgray;
   background-color: $BGgray;
   @include basicAlignColumn();
   width: 100%;
@@ -118,7 +117,6 @@ textarea::placeholder {
   height: 60px;
   resize: none;
   outline: none;
-  // border: 1px solid red;
   padding: 5px;
   box-sizing: border-box;
 }

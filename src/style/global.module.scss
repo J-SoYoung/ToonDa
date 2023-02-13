@@ -29,11 +29,14 @@ a {
   &:hover {
     color: inherit;
   }
-  &:ac {
+  &:active {
     color: inherit;
   }
-
+  &:visited {
+    color: inherit;
+  }
 }
+
 .notFoundPage {
   @include basicAlignColumn();
   width: 350px;

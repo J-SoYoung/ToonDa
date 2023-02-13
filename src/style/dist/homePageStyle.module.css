@@ -1,0 +1,328 @@
+@charset "UTF-8";
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+.homeNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #0e4f3d;
+}
+.homeNav > p {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "HSGyeoulNoonkott20";
+  color: #ffffff;
+  cursor: pointer;
+}
+.homeNav > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homeNav > div > p {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.middleNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #ffffff;
+}
+.middleNavBar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middleNavBar .middleLeftBar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middleNavBar .mainPage > p {
+  margin-right: 10 px;
+  cursor: pointer;
+}
+.middleNavBar .mainPage > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.middleNavBar .listPage > p {
+  cursor: pointer;
+  margin: 0 8px;
+}
+.middleNavBar .middleRightBar > p {
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.subNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #0e4f3d;
+  color: white;
+}
+.subNavBar > p:first-child {
+  cursor: pointer;
+}
+.subNavBar > p:last-child {
+  cursor: pointer;
+}
+
+.footerBar {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  width: 439px;
+  background-color: #0e4f3d;
+}
+.footerBar span {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "HSGyeoulNoonkott20";
+  color: #ffffff;
+}
+
+.homeBox {
+  padding-top: 60px;
+  box-sizing: border-box;
+}
+
+.homeTab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px 0;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+}
+.homeTab button {
+  width: 110px;
+  border-bottom: 2px solid #aaaaaa;
+  color: #aaaaaa;
+  background-color: #ffffff;
+}
+.homeTab button:hover {
+  border-bottom: 2px solid #0e4f3d;
+  color: #0e4f3d;
+}
+.homeTab .select {
+  border-bottom: 2px solid #0e4f3d;
+  color: #0e4f3d;
+}
+
+.homeUserInfo {
+  padding: 20px 40px;
+  box-sizing: border-box;
+  height: 200px;
+  margin: 10px 0;
+}
+.homeUserInfo > h2 {
+  font-size: 25px;
+  text-align: center;
+  margin: 10px 0 15px;
+}
+.homeUserInfo .userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homeUserInfo .userInfo > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.homeUserInfo .userInfo > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  border-left: 1px solid #e5e5e5;
+  margin-left: 20px;
+}
+.homeUserInfo .userInfo > div > span {
+  margin-bottom: 15px;
+  text-align: center;
+  word-break: keep-all;
+  line-height: 22px;
+}
+.homeUserInfo .userInfo > div > button {
+  padding: 10px 10px 5px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #0e4f3d;
+}
+
+.diaryList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 3px;
+  box-sizing: border-box;
+}
+
+.mydiary {
+  display: inline-block;
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e5e5;
+  width: 136px;
+  height: 200px;
+  margin: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+.mydiary:hover {
+  box-shadow: 1px 1px 5px #e5e5e5;
+}
+.mydiary > img {
+  margin-bottom: 8px;
+}
+
+.mydiary:hover {
+  box-shadow: 1px 1px 5px #e5e5e5;
+}
+
+.diaryItem {
+  display: inline-block;
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  width: 136px;
+  margin: 4px;
+  cursor: pointer;
+}
+.diaryItem:hover {
+  box-shadow: 1px 1px 5px #e5e5e5;
+}
+.diaryItem .imgBackground {
+  height: 200px;
+}
+.diaryItem .imgBackground img {
+  width: 100%;
+  height: 100%;
+}
+.diaryItem .content {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  opacity: 0.8;
+  background-color: #ffffff;
+}
+.diaryItem .content > p {
+  font-size: 17px;
+}
+.diaryItem .content .subContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.diaryItem .content .subContent img {
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+}
+.diaryItem .content .subContent div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  box-sizing: border-box;
+}
+.diaryItem .content .subContent div p {
+  margin-right: 4px;
+  font-size: 15px;
+  color: #aaaaaa;
+  font-weight: 500;
+}
+
+.footerBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 60px;
+  background-color: #0e4f3d;
+  margin-bottom: 10px;
+}
+.footerBar p {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "HSGyeoulNoonkott20";
+  color: #ffffff;
+}
