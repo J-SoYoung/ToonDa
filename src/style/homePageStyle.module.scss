@@ -87,9 +87,9 @@
     margin-bottom: 8px;
   }
 }
-// .mydiary:hover {
-//   box-shadow: 1px 1px 5px $lightgray;
-// }
+.mydiary:hover {
+  box-shadow: 1px 1px 5px $lightgray;
+}
 
 .diaryItem {
   @include glow();

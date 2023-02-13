@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

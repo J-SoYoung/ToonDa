@@ -1,0 +1,196 @@
+@charset "UTF-8";
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+.homeNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #0e4f3d;
+}
+.homeNav > p {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "HSGyeoulNoonkott20";
+  color: #ffffff;
+  cursor: pointer;
+}
+.homeNav > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homeNav > div > p {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.middleNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #ffffff;
+}
+.middleNavBar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middleNavBar .middleLeftBar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middleNavBar .mainPage > p {
+  margin-right: 10 px;
+  cursor: pointer;
+}
+.middleNavBar .mainPage > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.middleNavBar .listPage > p {
+  cursor: pointer;
+  margin: 0 8px;
+}
+.middleNavBar .middleRightBar > p {
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.subNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #0e4f3d;
+  color: white;
+}
+.subNavBar > p:first-child {
+  cursor: pointer;
+}
+.subNavBar > p:last-child {
+  cursor: pointer;
+}
+
+.footerBar {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  width: 439px;
+  background-color: #0e4f3d;
+}
+.footerBar span {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "HSGyeoulNoonkott20";
+  color: #ffffff;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 440px;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #0e4f3d;
+}
+.searchBar p {
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
+}
+.searchBar .searchInput {
+  width: 280px;
+  height: 35px;
+  border-radius: 8px;
+  outline: none;
+  padding: 5px 0 0 15px;
+  box-sizing: border-box;
+}
+
+.searchContent {
+  padding: 80px 20px 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.searchContent > p {
+  margin-top: 30px;
+  text-align: center;
+  color: #0e4f3d;
+  font-size: 20px;
+}
+.searchContent .searchList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.searchContent .searchList img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 100px;
+  margin-right: 10px;
+}
+.searchContent .searchList > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100px;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
