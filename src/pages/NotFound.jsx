@@ -2,7 +2,7 @@
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import badpage from "../assets/lottie/badpage.json";
-import styles from "../style/global.module.scss";
+import styles from "../styles/global.module.scss";
 
 export const NotFound = () => {
   return (

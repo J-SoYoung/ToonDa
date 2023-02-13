@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { DeveloperInfo } from "../components/DeveloperInfo";
 import { useInput } from "../hooks/useInput";
 import { saveItem } from "../service/storage";
-import styles from "../style/loginPageStyle.module.scss";
+import styles from "../styles/loginPageStyle.module.scss";
 
 export const LoginPage = () => {
   const navigate = useNavigate();

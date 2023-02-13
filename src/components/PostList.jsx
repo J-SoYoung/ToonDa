@@ -3,7 +3,7 @@ import { loadItem } from "../common/storage";
 import { SubNavBar } from "./navBar/SubNavBar";
 import { useInput } from "../hooks/useInput";
 
-import styles from "../style/postPageStyle.module.scss";
+import styles from "../styles/postPageStyle.module.scss";
 import { ReactComponent as Icon_ImageAdd } from "../assets/gray_image_add.svg";
 
 export const PostList = () => {

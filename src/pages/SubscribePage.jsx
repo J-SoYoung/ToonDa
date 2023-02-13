@@ -1,6 +1,6 @@
 import React from "react";
 import { SubNavBar } from "../components/navBar/SubNavBar";
-import styles from "../style/subscribePageStyle.module.scss";
+import styles from "../styles/subscribePageStyle.module.scss";
 
 export const SubscribePage = () => {
   return (

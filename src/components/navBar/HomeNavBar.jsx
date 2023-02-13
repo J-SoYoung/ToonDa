@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as Icon_Search } from "../../assets/search.svg";
 import { ReactComponent as Icon_Pencil } from "../../assets/pencil.svg";
 
-import styles from "../../style/homePageStyle.module.scss";
+import styles from "../../styles/homePageStyle.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 
 export const HomeNavBar = () => {

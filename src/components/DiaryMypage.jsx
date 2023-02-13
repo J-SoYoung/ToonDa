@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../style/homePageStyle.module.scss";
+import styles from "../styles/homePageStyle.module.scss";
 import { ReactComponent as Icon_DiaryAdd } from "../assets/black_diaryadd.svg";
 import { DiaryItem } from "./DiaryItem";
 

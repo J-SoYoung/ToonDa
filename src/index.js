@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import "./style/global.module.scss";
+import "./styles/global.module.scss";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

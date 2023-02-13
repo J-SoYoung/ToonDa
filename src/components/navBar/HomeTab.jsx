@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { loadItem, saveItem } from "../../service/storage";
-import styles from "../../style/homePageStyle.module.scss";
+import styles from "../../styles/homePageStyle.module.scss";
 
 export const HomeTab = () => {
   const navigate = useNavigate();
