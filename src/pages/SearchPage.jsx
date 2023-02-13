@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useInput } from "../hooks/useInput";
 import { useNavigate } from "react-router-dom";
 
-import styles from "../style/searchPageStyle.module.scss";
+import styles from "../styles/searchPageStyle.module.scss";
 import { ReactComponent as Icon_ChevronLeft } from "../assets/white_chevron_left.svg";
 import { ReactComponent as Icon_Search } from "../assets/white_search.svg";
 

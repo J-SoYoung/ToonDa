@@ -172,7 +172,7 @@ textarea::placeholder {
   background: #0e4f3d;
 }
 .togglebox > input:checked ~ .toggleSwitch .toggleButton {
-  left: calc(45px);
+  left: 45px;
   background: #fff;
 }
 .togglebox .toggleSwitch,

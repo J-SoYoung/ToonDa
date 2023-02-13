@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../style/homePageStyle.module.scss";
+import styles from "../styles/homePageStyle.module.scss";
 
 export const DiaryUserInfo = () => {
   const navigate = useNavigate();

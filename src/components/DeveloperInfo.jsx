@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../style/developerInfo.module.scss";
+import styles from "../styles/developerInfo.module.scss";
 
 export const DeveloperInfo = () => {
   return (

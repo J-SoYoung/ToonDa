@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../style/detailPageStyle.module.scss";
+import styles from "../styles/detailPageStyle.module.scss";
 
 import { FooterBar } from "../components/navBar/FooterBar";
 import { MiddleNavBar } from "../components/navBar/MiddleNavBar";

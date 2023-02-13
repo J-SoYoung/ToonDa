@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../style/homePageStyle.module.scss";
+import styles from "../styles/homePageStyle.module.scss";
 
 import { HomeNavBar } from "../components/navBar/HomeNavBar";
 import { HomeTab } from "../components/navBar/HomeTab";

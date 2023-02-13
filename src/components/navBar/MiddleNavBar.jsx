@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../style/navFooterStyle.module.scss";
+import styles from "../../styles/navFooterStyle.module.scss";
 import { ReactComponent as Icon_ChevronLeft } from "../../assets/green_chevron_left.svg";
 import { ReactComponent as Icon_Menu } from "../../assets/green_menu.svg";
 import { ReactComponent as Icon_Pencil } from "../../assets/green_pencil.svg";

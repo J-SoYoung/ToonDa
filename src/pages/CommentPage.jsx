@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SubNavBar } from "../components/navBar/SubNavBar";
-import styles from "../style/commentPageStyle.module.scss";
+import styles from "../styles/commentPageStyle.module.scss";
 import { ReactComponent as Icon_Check } from "../assets/gray_check_circle.svg";
 import { useInput } from "../hooks/useInput";
 
