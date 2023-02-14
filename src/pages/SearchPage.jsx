@@ -6,13 +6,17 @@ import styles from "../styles/searchPageStyle.module.scss";
 import { ReactComponent as Icon_ChevronLeft } from "../assets/white_chevron_left.svg";
 import { ReactComponent as Icon_Search } from "../assets/white_search.svg";
 
+
 export const SearchPage = () => {
   const navigate = useNavigate();
   const [searchText, onChangeSearch] = useInput();
+  // api결과가 없으면 보여줄 문구 state로 임시 대체
   const [searchList, setSearchList] = useState(true);
+
   const handleClickSearch = () => {
     console.log(searchText);
   };
+
   return (
     <>
       <div className={styles.searchBar}>

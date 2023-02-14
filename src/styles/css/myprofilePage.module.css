@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* LOGO */
+@font-face {
+  font-family: "HSGyeoulNoonkott20";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 깔끔, 둥글 */
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Glow */
+.myprofileBox {
+  padding: 70px 20px;
+}
+
+.imgBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px;
+}
+.imgBox img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+.imgBox p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 220px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  border-radius: 50%;
+  background-color: #0e4f3d;
+  cursor: pointer;
+}
+
+.textBox {
+  margin-top: 20px;
+}
+.textBox > div {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.textBox > div > p {
+  margin-bottom: 10px;
+}
+.textBox > div input,
+.textBox > div textarea {
+  width: 100%;
+  margin-bottom: 8px;
+  resize: none;
+  outline: none;
+  border-bottom: 2px solid #0e4f3d;
+}
+.textBox > div > span {
+  position: absolute;
+  right: 0;
+}
