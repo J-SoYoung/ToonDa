@@ -1,20 +1,36 @@
 import React, { useState } from "react";
-import styles from "../../styles/navFooterStyle.module.scss";
-import { ReactComponent as Icon_ChevronLeft } from "../../assets/green_chevron_left.svg";
-import { ReactComponent as Icon_Menu } from "../../assets/green_menu.svg";
-import { ReactComponent as Icon_Pencil } from "../../assets/green_pencil.svg";
-import { ReactComponent as Icon_Share } from "../../assets/green_share.svg";
-import { ReactComponent as Icon_Comment } from "../../assets/green_comment.svg";
-import { ReactComponent as Icon_StarStroke } from "../../assets/green_star_stroke.svg";
-import { ReactComponent as Icon_StarFull } from "../../assets/green_star_full.svg";
-import { ReactComponent as Icon_Subscribe } from "../../assets/green_subscribe.svg";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+
+import { ModalEditDeleteForm, ModalMessageForm } from "../ModalForm";
+import styles from "../../styles/navFooterStyle.module.scss";
+
+import {
+  Icon_G_ChevronLeft,
+  Icon_G_Memu,
+  Icon_G_Pencil,
+  Icon_G_Share,
+  Icon_G_Comment,
+  Icon_G_StarStroke,
+  Icon_G_StarFull,
+  Icon_G_Substribe,
+} from "../../assets/index";
 
 export const MiddleNavBar = () => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
   // const [isMain, setIsMain] = useState(true);
   const [isMain, setIsMain] = useState(false);
   const [isLike, setIsLike] = useState(false);
+
+  const handleDiaryEdit = () => {
+    console.log("다이어리 수정");
+  };
+
+  const handleDiaryDelete = () => {
+    console.log("다이어리 삭제");
+  };
 
   return (
     <div className={styles.middleNavBar}>
@@ -25,7 +41,7 @@ export const MiddleNavBar = () => {
               navigate(-1);
             }}
           >
-            <Icon_ChevronLeft />
+            <img src={Icon_G_ChevronLeft} />
           </p>
           {isMain ? (
             <div
@@ -34,7 +50,7 @@ export const MiddleNavBar = () => {
               }}
             >
               <p>
-                <Icon_Subscribe />
+                <img src={Icon_G_Substribe} />
               </p>
               <span>1명 구독중</span>
             </div>
@@ -45,10 +61,14 @@ export const MiddleNavBar = () => {
                   navigate("/comment");
                 }}
               >
-                <Icon_Comment />
+                <img src={Icon_G_Comment} />
               </p>
               <p onClick={() => alert("스타")}>
-                {isLike ? <Icon_StarFull /> : <Icon_StarStroke />}
+                {isLike ? (
+                  <img src={Icon_G_StarFull} />
+                ) : (
+                  <img src={Icon_G_StarStroke} />
+                )}
               </p>
             </div>
           )}
@@ -57,23 +77,36 @@ export const MiddleNavBar = () => {
 
       <div className={styles.middleRightBar}>
         <p>
-          <Icon_Share />
+          <img src={Icon_G_Share} />
         </p>
         <p
           onClick={() => {
             navigate("/post/list");
           }}
         >
-          <Icon_Pencil />
+          <img src={Icon_G_Pencil} />
         </p>
         <p
           onClick={() => {
-            alert("모달로 삭제/수정");
+            setShowModal(true);
           }}
         >
-          <Icon_Menu />
+          <img src={Icon_G_Memu} />
         </p>
       </div>
+      {showModal &&
+        createPortal(
+          <ModalMessageForm
+            onClose={() => {
+              setShowModal(false);
+            }}
+            text1="일기장 수정"
+            text2="일기장 삭제"
+            handleFunc1={handleDiaryEdit}
+            handleFunc2={handleDiaryDelete}
+          />,
+          document.body
+        )}
     </div>
   );
 };

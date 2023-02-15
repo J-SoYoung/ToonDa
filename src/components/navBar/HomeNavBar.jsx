@@ -27,7 +27,7 @@ export const HomeNavBar = () => {
         </p>
         <p
           onClick={() => {
-            navigate("/post/cover");
+            navigate("/post/list");
           }}
         >
           <Icon_Pencil />
