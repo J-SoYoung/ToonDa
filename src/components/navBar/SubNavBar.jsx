@@ -5,9 +5,11 @@ import { ReactComponent as Icon_CheckSqure } from "../../assets/white_check_squr
 
 import { useNavigate } from "react-router-dom";
 
-export const SubNavBar = ({ children, checkbox, handleFunc }) => {
+export const SubNavBar = ({ children, checkbox, handleFunc, selectFunc }) => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
+  // console.log(children);
   return (
     <>
       <div className={styles.subNavBar}>
@@ -18,8 +20,18 @@ export const SubNavBar = ({ children, checkbox, handleFunc }) => {
         >
           <Icon_ChevronLeft />
         </p>
+        {selectFunc ? (
+          <p
+            onClick={() => {
+              selectFunc();
+            }}
+          >
+            {children}
+          </p>
+        ) : (
+          <p>{children}</p>
+        )}
 
-        <p>{children}</p>
         <p
           onClick={() => {
             handleFunc();

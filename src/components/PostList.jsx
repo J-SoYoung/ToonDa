@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { loadItem } from "../common/storage";
+import { createPortal } from "react-dom";
+import { ModalDiarySelectForm } from "./ModalForm";
+
 import { SubNavBar } from "./navBar/SubNavBar";
 import { useInput } from "../hooks/useInput";
 
@@ -7,6 +9,7 @@ import styles from "../styles/postPageStyle.module.scss";
 import { ReactComponent as Icon_ImageAdd } from "../assets/gray_image_add.svg";
 
 export const PostList = () => {
+  const [showModal, setShowModal] = useState(false);
   const [imgContain, setImgContain] = useState(false);
 
   const [imageUrl, setImageUrl] = useState("");
@@ -49,7 +52,24 @@ export const PostList = () => {
         children="( 일기장 제목 ) 툰 일기"
         checkbox={true}
         handleFunc={handlePostAdd}
+        selectFunc={() => {
+          setShowModal(true);
+        }}
       />
+      {showModal &&
+        createPortal(
+          <ModalDiarySelectForm
+            onClose={() => {
+              setShowModal(false);
+            }}
+            // title="프로필 변경"
+            // text1="앨범에서 선택"
+            // text2="기본 프로필로 설정"
+            // handleFunc1={handleImageEdit}
+            // handleFunc2={handleImageBasic}
+          />,
+          document.body
+        )}
 
       <div className={styles.postBox}>
         <div className={styles.subContent}>

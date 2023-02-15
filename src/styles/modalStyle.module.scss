@@ -1,0 +1,44 @@
+@import "./utils.module.scss";
+
+.modalOverlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+}
+.modalBox {
+  width: 400px;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: $white;
+  @include basicAlignColumn();
+  & > p {
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: $middleSize;
+  }
+  button {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid $darkgray;
+    background-color: $white;
+    font-size: $middleSize;
+    text-align: left;
+    color: $black;
+  }
+  button:last-child {
+    border: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+  button:hover {
+    background-color: $BGgray;
+  }
+}

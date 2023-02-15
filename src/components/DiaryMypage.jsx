@@ -13,7 +13,7 @@ export const DiaryMypage = () => {
       <div
         className={styles.mydiary}
         onClick={() => {
-          navigate("/post");
+          navigate("/post/cover");
         }}
       >
         <Icon_DiaryAdd />
