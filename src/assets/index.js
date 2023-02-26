@@ -7,6 +7,8 @@ import Icon_G_Comment from "./green_comment.svg";
 import Icon_G_StarStroke from "./green_star_stroke.svg";
 import Icon_G_StarFull from "./green_star_full.svg";
 import Icon_G_Substribe from "./green_subscribe.svg";
+import Icon_G_EyeOpen from "./gray_eye_open.svg";
+import Icon_G_EyeClose from "./gray_eye_close.svg";
 
 export {
   IconDiaryAdd,
@@ -18,4 +20,6 @@ export {
   Icon_G_StarStroke,
   Icon_G_StarFull,
   Icon_G_Substribe,
+  Icon_G_EyeOpen,
+  Icon_G_EyeClose,
 };
