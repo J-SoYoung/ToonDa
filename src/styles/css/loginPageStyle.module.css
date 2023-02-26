@@ -76,6 +76,7 @@
   width: 100%;
 }
 .inputBox .inputList {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
@@ -115,6 +116,19 @@
   border-radius: 8px;
   color: #ffffff;
   background-color: #0e4f3d;
+}
+.inputBox .inputList button {
+  width: 30px;
+  z-index: 2;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.inputBox .inputList .loginBtn {
+  bottom: 10px;
+}
+.inputBox .inputList .signupBtn {
+  bottom: 35px;
 }
 
 .buttonBox {
