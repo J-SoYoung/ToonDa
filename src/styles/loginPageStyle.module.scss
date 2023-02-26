@@ -1,4 +1,4 @@
-@import "./utils.module.scss";
+@import './utils.module.scss';
 
 .warning {
   color: red;
@@ -52,6 +52,7 @@
 .inputBox {
   width: 100%;
   .inputList {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
@@ -84,8 +85,22 @@
         @include buttonStyle(50);
       }
     }
+    button {
+      width: 30px;
+      z-index: 2;
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+    .loginBtn {
+      bottom: 10px;
+    }
+    .signupBtn {
+      bottom: 35px;
+    }
   }
 }
+
 .buttonBox {
   width: 100%;
   display: flex;
