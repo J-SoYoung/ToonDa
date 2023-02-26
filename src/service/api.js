@@ -8,13 +8,6 @@ const baseURL = axios.create({
   },
 });
 
-const loginBaseURL = axios.create({
-  baseURL: 'http://3.38.98.211:8080/',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-  },
-});
-
 baseURL.interceptors.request.use((config) => {
   console.log('req', config);
   // 서버에 요청할 때, 로컬 스토리지에 있는 토큰 헤더에 넣어 요청
@@ -26,16 +19,15 @@ baseURL.interceptors.request.use((config) => {
 
 export const postLogin = async ({ email, password }) => {
   console.log(email, password);
-  await loginBaseURL
+  await baseURL
     .post('api/users/login', { email, password })
     .then((res) => {
-      console.log(res);
-      console.log(res.headers['Authorization']);
+      saveItem('isLogin', res.headers.authorization);
       saveItem('tabKeyword', 'new');
       saveItem('username', res.data.data.username);
       saveItem('userId', res.data.data.userId);
       saveItem('profileImg', res.data.data.img);
-      window.replace('/home/new');
+      window.location.replace('/home/new');
     })
     .catch((err) => {
       console.log(err);
@@ -44,10 +36,11 @@ export const postLogin = async ({ email, password }) => {
 };
 export const emailCheckApi = async (email) => {
   console.log(email);
-  const res = await loginBaseURL.get(`/api/users/email-check/${email}`);
+  const res = await baseURL.get(`/api/users/email-check/${email.email}`);
+  console.log(res);
   return res;
-  // await loginBaseURL
-  //   .get(`/api/users/email-check/${email}`)
+  // await baseURL
+  //   .get(`/api/users/email-check/${email.email}`)
   //   .then((res) => {
   //     console.log(res);
   //     alert('사용가능한 이메일입니다');
@@ -59,7 +52,7 @@ export const emailCheckApi = async (email) => {
 };
 export const nicknameCheckApi = async (username) => {
   console.log(username);
-  await loginBaseURL
+  await baseURL
     .get(`/api/users/username-check/${username}`)
     .then((res) => {
       console.log(res);

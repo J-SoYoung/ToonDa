@@ -2,9 +2,13 @@
 
 .warning {
   color: red;
+  margin-top: 10px;
+  font-size: $smallSize !important;
 }
-.default {
-  color: $darkgray;
+.disabled {
+  color: $white !important;
+  background-color: $darkgray !important;
+  cursor: default !important;
 }
 .loginBox {
   @include basicPadding();

@@ -16,10 +16,14 @@
 /* Glow */
 .warning {
   color: red;
+  margin-top: 10px;
+  font-size: 15px !important;
 }
 
-.default {
-  color: #aaaaaa;
+.disabled {
+  color: #ffffff !important;
+  background-color: #aaaaaa !important;
+  cursor: default !important;
 }
 
 .loginBox {
