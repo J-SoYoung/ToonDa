@@ -89,18 +89,20 @@
         @include buttonStyle(50);
       }
     }
-    button {
-      width: 30px;
-      z-index: 2;
+    .iconBtn {
       position: absolute;
-      right: 10px;
+      top: 30px;
+      right: 0;
+      height: 52px;
       cursor: pointer;
-    }
-    .loginBtn {
-      bottom: 10px;
-    }
-    .signupBtn {
-      bottom: 35px;
+      background-color: $BGgray;
+      & > img {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+      }
     }
   }
 }

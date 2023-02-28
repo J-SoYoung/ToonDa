@@ -1,6 +1,13 @@
 import axios from 'axios';
 import { loadItem, saveItem } from './storage';
 
+const loginbaseURL = axios.create({
+  baseURL: 'http://3.38.98.211:8080/',
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+  },
+});
+
 const baseURL = axios.create({
   baseURL: 'http://3.38.98.211:8080/',
   headers: {
@@ -17,14 +24,13 @@ baseURL.interceptors.request.use((config) => {
   return config;
 });
 
-export const postLogin = async ({ email, password }) => {
-  console.log(email, password);
-  await baseURL
-    .post('api/users/login', { email, password })
+export const postLogin = async (data) => {
+  await loginbaseURL
+    .post('api/users/login', data)
     .then((res) => {
       saveItem('isLogin', res.headers.authorization);
       saveItem('tabKeyword', 'new');
-      saveItem('username', res.data.data.username);
+      saveItem('email', res.data.data.email);
       saveItem('userId', res.data.data.userId);
       saveItem('profileImg', res.data.data.img);
       window.location.replace('/home/new');
@@ -35,11 +41,11 @@ export const postLogin = async ({ email, password }) => {
     });
 };
 export const emailCheckApi = async (email) => {
-  console.log(email);
-  const res = await baseURL.get(`/api/users/email-check/${email.email}`);
+  console.log('email', email);
+  const res = await loginbaseURL.get(`/api/users/email-check/${email.email}`);
   console.log(res);
   return res;
-  // await baseURL
+  // await loginbaseURL
   //   .get(`/api/users/email-check/${email.email}`)
   //   .then((res) => {
   //     console.log(res);
@@ -52,7 +58,7 @@ export const emailCheckApi = async (email) => {
 };
 export const nicknameCheckApi = async (username) => {
   console.log(username);
-  await baseURL
+  await loginbaseURL
     .get(`/api/users/username-check/${username}`)
     .then((res) => {
       console.log(res);
