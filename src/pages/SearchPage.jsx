@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useInput } from "../hooks/useInput";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useInput } from '../hooks/useInput';
+import { useNavigate } from 'react-router-dom';
 
-import styles from "../styles/searchPageStyle.module.scss";
-import { ReactComponent as Icon_ChevronLeft } from "../assets/white_chevron_left.svg";
-import { ReactComponent as Icon_Search } from "../assets/white_search.svg";
-
+import styles from '../styles/searchPageStyle.module.scss';
+import { ReactComponent as Icon_ChevronLeft } from '../assets/white_chevron_left.svg';
+import { ReactComponent as Icon_Search } from '../assets/white_search.svg';
+import { ReactForm2 } from '../components/ReactForm2';
 
 export const SearchPage = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const SearchPage = () => {
         <input
           className={styles.searchInput}
           type="text"
-          value={searchText || ""}
+          value={searchText || ''}
           onChange={onChangeSearch}
           placeholder="검색어를 입력해주세요"
         />
@@ -57,6 +57,7 @@ export const SearchPage = () => {
                 </div>
               </div>
             </div>
+            <ReactForm2 />
           </>
         )}
       </div>

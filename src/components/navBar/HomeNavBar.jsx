@@ -1,9 +1,10 @@
-import React from "react";
-import { ReactComponent as Icon_Search } from "../../assets/search.svg";
-import { ReactComponent as Icon_Pencil } from "../../assets/pencil.svg";
+import React from 'react';
+import { ReactComponent as Icon_Search } from '../../assets/search.svg';
+import { ReactComponent as Icon_Pencil } from '../../assets/pencil.svg';
 
-import styles from "../../styles/homePageStyle.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import styles from '../../styles/homePageStyle.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { saveItem } from '../../service/storage';
 
 export const HomeNavBar = () => {
   const navigate = useNavigate();
@@ -12,7 +13,8 @@ export const HomeNavBar = () => {
     <div className={styles.homeNav}>
       <p
         onClick={() => {
-          navigate("/home/new");
+          navigate('/home/new');
+          saveItem('tabKeyword', 'new');
         }}
       >
         ToonDa
@@ -20,14 +22,14 @@ export const HomeNavBar = () => {
       <div>
         <p
           onClick={() => {
-            navigate("/search");
+            navigate('/search');
           }}
         >
           <Icon_Search />
         </p>
         <p
           onClick={() => {
-            navigate("/post/list");
+            navigate('/post/list');
           }}
         >
           <Icon_Pencil />
