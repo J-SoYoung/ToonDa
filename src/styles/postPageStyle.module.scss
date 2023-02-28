@@ -1,4 +1,4 @@
-@import "./utils.module.scss";
+@import './utils.module.scss';
 
 .postBox {
   padding-top: 60px;
@@ -47,13 +47,7 @@
     background-attachment: local;
     background-image: linear-gradient(to right, white 25px, transparent 25px),
       linear-gradient(to left, white 25px, transparent 25px),
-      repeating-linear-gradient(
-        white,
-        white 34px,
-        #ccc 35px,
-        #ccc 35px,
-        white 37px
-      );
+      repeating-linear-gradient(white, white 34px, #ccc 35px, #ccc 35px, white 37px);
     line-height: 38px;
     padding: 8px 30px;
     box-sizing: border-box;
@@ -96,7 +90,7 @@ textarea::placeholder {
     color: $darkgray;
     cursor: pointer;
   }
-  input[type="file"] {
+  input[type='file'] {
     /* 파일 필드 숨기기 */
     position: absolute;
     width: 1px;
@@ -175,7 +169,7 @@ textarea::placeholder {
     color: $white;
     text-align: left;
   }
-  .notSecret {
+  .basic {
     color: $green;
     text-align: right;
   }
