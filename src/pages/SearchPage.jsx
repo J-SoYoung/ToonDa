@@ -57,7 +57,6 @@ export const SearchPage = () => {
                 </div>
               </div>
             </div>
-            <ReactForm2 />
           </>
         )}
       </div>
