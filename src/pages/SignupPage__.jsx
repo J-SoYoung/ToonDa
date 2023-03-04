@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-
 import { emailRegex, passwordRegex } from '../common/regEx';
 import { DeveloperInfo } from '../components/DeveloperInfo';
 import { useInput } from '../hooks/useInput';
@@ -10,18 +8,7 @@ import { emailCheckApi, nicknameCheckApi } from '../service/api';
 import styles from '../styles/loginPageStyle.module.scss';
 import { Icon_G_EyeOpen, Icon_G_EyeClose } from '../assets/index';
 
-export const SignupPage = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm({
-    defaultValue: {
-      email: 'example@exam.com',
-      username: '김유저',
-    },
-  });
-
+export const SignupPage__ = () => {
   const navigate = useNavigate();
   const [view, setView] = useState(false);
 
@@ -31,55 +18,59 @@ export const SignupPage = () => {
   const [passwordCheck, onChangePasswordCheck] = useInput();
 
   // 중복확인 체크, 비밀번호 재확인
-  const [emailDoubleCheck, setEmailDoubleCheck] = useState(false);
+  const [emailDoubleCheck, setEmailDoubleCheck] = useState(true);
   const [usernameDoubleCheck, setUsernameDoubleCheck] = useState(false);
   const [passwordDoubleCheck, setPasswordDoubleCheck] = useState('');
 
   // 정규식 확인
+  const [emailRegExCheck, setEmailRegExCheck] = useState(true);
   const [passwordRegExCheck, setPasswordRegExCheck] = useState('');
   const [usernameCheck, setUsernameCheck] = useState(true);
 
-  const handleEmailCheck = (data) => {
-    console.log('email', data);
-    emailCheckApi(data)
-      .then((res) => {
-        console.log(res);
-        setEmailDoubleCheck(true);
-        alert('사용가능한 이메일입니다');
-      })
-      .catch((err) => {
-        alert(err);
-      });
+  const handleClickSignup = () => {
+    // console.log
   };
 
-  // const handleUsernameDoubleCheck = () => {
-  //   console.log(username);
-  //   if (username.length < 5 || username.length > 10) {
-  //     setUsernameCheck(false);
-  //     alert('닉네임을 확인해주세요');
-  //     return;
-  //   }
-  //   setUsernameCheck(true);
-  //   setUsernameDoubleCheck(true);
-  //   nicknameCheckApi(username);
-  //   // alert("사용가능한 닉네임입니다");
-  // };
-
-
-  const handleClickSignup = () => {
-    if (emailDoubleCheck === false) {
-      alert('이메일 중복확인을 해주세요');
+  // 이메일, 닉네임 중복확인 + 정규식도 같이 확인
+  const handleEmailDoubleCheck = () => {
+    // 중복확인 API
+    if (email === '') {
+      setEmailDoubleCheck(false);
       return;
     }
+    if (!emailRegex.test(email)) {
+      setEmailDoubleCheck(false);
+      setEmailRegExCheck(false);
+      return;
+    }
+    emailCheckApi(email).then((res) => {
+      if (res.data.success === false) {
+        console.log(res);
+        // setEmailDoubleCheck(true);
+      } else {
+        alert('중복된 이메일입니다');
+        // setEmailDoubleCheck(false);
+      }
+    });
+    // setEmailDoubleCheck(true);
+  };
 
-    // if (usernameDoubleCheck === false) {
-    //   alert('닉네임 중복확인을 해주세요');
-    //   return;
-    // }
+  const handleUsernameDoubleCheck = () => {
+    console.log(username);
+    if (username.length < 5 || username.length > 10) {
+      setUsernameCheck(false);
+      alert('닉네임을 확인해주세요');
+      return;
+    }
+    setUsernameCheck(true);
+    setUsernameDoubleCheck(true);
+    nicknameCheckApi(username);
+    // alert("사용가능한 닉네임입니다");
   };
 
   const goLogin = () => {
     navigate('/');
+    //
   };
 
   return (
@@ -95,53 +86,37 @@ export const SignupPage = () => {
             <p>이메일</p>
             <div className={styles.subCheck}>
               <input
-                {...register('email', {
-                  required: '빈칸을 입력해주세요',
-                  pattern: {
-                    value:
-                      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
-                    message: '이메일 형식을 확인해주세요',
-                  },
-                })}
-                placeholder="이메일을 입력해주세요"
-                readOnly={emailDoubleCheck ? true : false}
+                type="email"
+                value={email || ''}
+                onChange={onChangeEmail}
+                placeholder="이메일 주소를 입력하세요"
+                // readOnly={emailDoubleCheck ? true : false}
               />
-              <button
-                disabled={emailDoubleCheck ? true : false}
-                className={emailDoubleCheck ? styles.disabled : null}
-                onClick={handleSubmit(handleEmailCheck)}
-              >
-                중복확인
-              </button>
+              <button onClick={handleEmailDoubleCheck}>중복확인</button>
             </div>
-            <p className={styles.warning}>{errors.email?.message}</p>
+            {!emailDoubleCheck ? (
+              <label className={emailDoubleCheck ? null : styles.warning}>
+                이메일 형식을 확인하세요
+              </label>
+            ) : null}
           </div>
 
-          {/* 
           <div className={styles.inputList}>
             <p>닉네임 </p>
             <div className={styles.subCheck}>
               <input
-                {...register('username', {
-                  required: '빈칸을 입력해주세요',
-                  minLength: { value: 5, message: '5글자 이상 12글자 미만으로 적어주세요' },
-                  maxLength: { value: 12, message: '5글자 이상 12글자 미만으로 적어주세요' },
-                })}
-                placeholder="닉네임을 입력해주세요"
-                readOnly={usernameDoubleCheck ? true : false}
+                type="text"
+                value={username || ''}
+                onChange={onChangeUsername}
+                placeholder="닉네임을 작성해주세요"
+                // readOnly={usernameDoubleCheck ? true :  false}
               />
-              <button
-                disabled={usernameDoubleCheck ? true : false}
-                className={usernameDoubleCheck ? styles.disabled : null}
-                // onClick={handleSubmit((data) => {
-                //   console.log(data);
-                // })}
-              >
-                중복확인
-              </button>
+              <button onClick={handleUsernameDoubleCheck}>중복확인</button>
             </div>
-            <p>{errors.username?.message}</p>
-          </div> */}
+            <label className={usernameCheck ? styles.default : styles.warning}>
+              닉네임은 5-10자 입력하세요
+            </label>
+          </div>
 
           <div className={styles.inputList}>
             <p>비밀번호 </p>
@@ -178,7 +153,7 @@ export const SignupPage = () => {
               동일한 비밀번호를 입력하세요
             </label>
             <button
-              className={styles.iconBtn}
+              className={styles.signupBtn}
               onClick={() => {
                 setView(!view);
               }}
