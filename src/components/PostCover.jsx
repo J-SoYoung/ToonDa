@@ -4,22 +4,32 @@ import { useInput } from '../hooks/useInput';
 import { addPostCoverApi, useAddPostCover } from '../service/api';
 import { useMutation, useQueryClient } from 'react-query';
 import styles from '../styles/postPageStyle.module.scss';
-import { ReactComponent as Icon_ImageAdd } from '../assets/gray_image_add.svg';
+import { Icon_Gray_ImageAdd, Icon_Gray_X } from '../assets/index';
 
 export const PostCover = () => {
   const [title, onChangeDiaryTitle] = useInput();
 
+  const [hashtag, setHashtag] = useState('');
+  const [hashtagArr, setHashtagArr] = useState([]);
+
   const [isOpen, setIsOpen] = useState(true);
   const [imgContain, setImgContain] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
-  const [image, setImage] = useState('');
+  const [img, setImg] = useState('');
+
+  const handleKeyUp = (e) => {
+    if (e.key === 'Enter' && hashtag !== '') {
+      setHashtagArr([...hashtagArr, hashtag.trim()]);
+      setHashtag('');
+    }
+  };
 
   const handleChangeImage = (e) => {
     if (e.target.files[0]) {
       setImageUrl(URL.createObjectURL(e.target.files[0]));
       setImgContain(true);
       const files = e.currentTarget.files[0];
-      setImage(files);
+      setImg(files);
     }
   };
 
@@ -30,19 +40,25 @@ export const PostCover = () => {
     }
   };
 
+  const handleHashTagDelete = (idx) => {
+    console.log(idx);
+    const newHashTags = [...hashtagArr];
+    newHashTags.splice(idx, 1);
+    setHashtagArr(newHashTags);
+  };
+
   const { mutate: addPostCover } = useAddPostCover();
   const handlePostCoverAdd = () => {
     // console.log('일기커버 추가', { isOpen, image, title });
     const newPostCover = {
       open: isOpen,
-      image,
+      img,
       title,
-      category: 'category',
+      hashtags: hashtagArr,
     };
-    console.log(newPostCover);
+    // console.log(newPostCover);
     addPostCover(newPostCover);
   };
-
   return (
     <>
       <SubNavBar children="새 툰 다이어리 만들기" checkbox={true} handleFunc={handlePostCoverAdd} />
@@ -53,7 +69,7 @@ export const PostCover = () => {
             className={styles.coverTextBox}
             type="text"
             maxLength="20"
-            placeholder={`제목을 입력해주세요`}
+            placeholder={`툰 다이어리 제목을 입력해주세요`}
             onChange={onChangeDiaryTitle}
           />
         </div>
@@ -75,7 +91,32 @@ export const PostCover = () => {
             </span>
           </label>
         </div>
-        <div className={styles.categories}>#카테고리 #카테고리</div>
+        <div className={styles.hashBox}>
+          <div>
+            <input
+              className={styles.hashInput}
+              type="text"
+              value={hashtag || ''}
+              placeholder={hashtagArr.length < 3 ? '#태그입력' : '해시태그는 3개까지만 설정 가능합니다'}
+              disabled={hashtagArr.length < 3 ? false : true}
+              onKeyUp={handleKeyUp}
+              onChange={(e) => setHashtag(e.target.value)}
+            />
+          </div>
+          <ul className={styles.hashList}>
+            {hashtagArr?.map((h, idx) => {
+              return (
+                <li key={idx} className={styles.hashItem}>
+                  {`#${h}`}
+                  <button onClick={() => handleHashTagDelete(idx)}>
+                    <img src={Icon_Gray_X} />
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
         <div className={styles.imgBox}>
           {imgContain ? (
             <div>
@@ -86,7 +127,7 @@ export const PostCover = () => {
               <div className={styles.fileLoad}>
                 <label htmlFor="file">
                   <p>
-                    <Icon_ImageAdd />
+                    <img src={Icon_Gray_ImageAdd} />
                   </p>
                   <p>오늘의 툰을 올려주세요</p>
                 </label>

@@ -174,3 +174,22 @@ textarea::placeholder {
     text-align: right;
   }
 }
+
+.categories {
+  border: 1px solid $BGgray;
+  margin-left: 15px;
+}
+
+.hashBox {
+  border: 1px solid red;
+  .hashInput {
+    width: 100%;
+  }
+  .hashList {
+    @include basicAlign();
+    justify-content: flex-start;
+    & > li {
+      margin-right: 10px;
+    }
+  }
+}

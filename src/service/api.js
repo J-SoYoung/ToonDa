@@ -81,13 +81,14 @@ export const useAddPostCover = () => {
 };
 
 export const addPostCoverApi = async (payload) => {
-  const { image, open, title } = payload;
+  const { img, open, title, hashtags } = payload;
   // console.log(image, isOpen, title);
   console.log(payload);
   const formData = new FormData();
-  formData.append('image', image);
+  formData.append('img', img);
   formData.append('open', open);
   formData.append('title', title);
+  formData.append('hashtags', hashtags);
 
   // 객체로 받아와서 img안에 있는 데이터를 보내려면 배열로 만든 후 보내야햇?
   // Object.entries(payload).forEach((ele) => {

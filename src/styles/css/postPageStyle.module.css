@@ -183,7 +183,28 @@ textarea::placeholder {
   color: #ffffff;
   text-align: left;
 }
-.togglebox .notSecret {
+.togglebox .basic {
   color: #0e4f3d;
   text-align: right;
+}
+
+.categories {
+  border: 1px solid #f4f4f4;
+  margin-left: 15px;
+}
+
+.hashBox {
+  border: 1px solid red;
+}
+.hashBox .hashInput {
+  width: 100%;
+}
+.hashBox .hashList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+}
+.hashBox .hashList > li {
+  margin-right: 10px;
 }
