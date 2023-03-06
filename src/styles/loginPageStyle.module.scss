@@ -10,6 +10,12 @@
   background-color: $darkgray !important;
   cursor: default !important;
 }
+.success {
+  color: $green !important;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: $smallSize !important;
+}
 .loginBox {
   @include basicPadding();
   width: 100%;

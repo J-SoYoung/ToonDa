@@ -121,18 +121,20 @@
   color: #ffffff;
   background-color: #0e4f3d;
 }
-.inputBox .inputList button {
-  width: 30px;
+.inputBox .inputList .iconBtn {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  height: 52px;
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+.inputBox .inputList .iconBtn > img {
   z-index: 2;
   position: absolute;
-  right: 10px;
-  cursor: pointer;
-}
-.inputBox .inputList .loginBtn {
-  bottom: 10px;
-}
-.inputBox .inputList .signupBtn {
-  bottom: 35px;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
 }
 
 .buttonBox {

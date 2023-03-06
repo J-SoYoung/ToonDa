@@ -22,7 +22,7 @@ export const LoginPage = () => {
   const handleLogin = (data) => {
     postLogin(data);
   };
-
+  
   return (
     <>
       <div className={styles.loginBox}>
