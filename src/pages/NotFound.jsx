@@ -1,8 +1,8 @@
 //Lottie style
 import Lottie from 'lottie-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import badpage from '../assets/lottie/badpage.json';
-import { saveItem } from '../service/storage';
+import { localSaveItem } from '../service/storage';
 import styles from '../styles/global.module.scss';
 
 export const NotFound = () => {
@@ -14,7 +14,7 @@ export const NotFound = () => {
         <span
           onClick={() => {
             navigate('/home/new');
-            saveItem('tabKeyword', 'new');
+            localSaveItem('tabKeyword', 'new');
           }}
         >
           홈으로 가기
