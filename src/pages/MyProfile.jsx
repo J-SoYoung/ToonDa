@@ -1,36 +1,32 @@
-import React, { useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import React, { useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
-import { SubNavBar } from "../components/navBar/SubNavBar";
-import styles from "../styles/myprofilePage.module.scss";
-import { ReactComponent as Icon_WhitePencil } from "../assets/white_pencil.svg";
-import { useInput } from "../hooks/useInput";
-import { ModalMessageForm } from "../components/ModalForm";
+import { SubNavBar } from '../components/navBar/SubNavBar';
+import styles from '../styles/myprofilePage.module.scss';
+import { ReactComponent as Icon_WhitePencil } from '../assets/white_pencil.svg';
+import { useInput } from '../hooks/useInput';
+import { ModalMessageForm } from '../components/ModalForm';
 
 export const MyProfile = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const [nickname, onChangeNickname] = useInput();
+  const [username, onChangeUsername] = useInput();
   const [diaryIntro, onChangeDiaryIntro] = useInput();
 
   const handleProfileEdit = () => {
-    console.log("v프로필수정");
+    console.log('프로필수정');
   };
 
   const handleImageEdit = () => {
-    console.log("이미지 수정");
+    console.log('이미지 수정');
   };
   const handleImageBasic = () => {
-    console.log("기본이미지로");
+    console.log('기본이미지로');
   };
 
   return (
     <>
-      <SubNavBar
-        children="프로필수정"
-        checkbox={true}
-        handleFunc={handleProfileEdit}
-      />
+      <SubNavBar children="프로필수정" checkbox={true} handleFunc={handleProfileEdit} />
       <div className={styles.myprofileBox}>
         <div className={styles.imgBox}>
           <img src="/img/user.jpg" />
@@ -53,7 +49,7 @@ export const MyProfile = () => {
                 handleFunc1={handleImageEdit}
                 handleFunc2={handleImageBasic}
               />,
-              document.body
+              document.body,
             )}
         </div>
         <div className={styles.textBox}>
@@ -61,11 +57,11 @@ export const MyProfile = () => {
             <p>닉네임</p>
             <input
               placeholder="defaultValue"
-              value={nickname}
+              value={username}
               maxLength="10"
-              onChange={onChangeNickname}
+              onChange={onChangeUsername}
             />
-            <span>{nickname.length}/10</span>
+            <span>{username.length}/10</span>
           </div>
           <div>
             <p>소&nbsp;&nbsp;개</p>

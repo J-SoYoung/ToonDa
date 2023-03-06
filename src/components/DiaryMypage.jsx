@@ -1,8 +1,8 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "../styles/homePageStyle.module.scss";
-import { ReactComponent as Icon_DiaryAdd } from "../assets/black_diaryadd.svg";
-import { DiaryItem } from "./DiaryItem";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from '../styles/homePageStyle.module.scss';
+import { ReactComponent as Icon_DiaryAdd } from '../assets/black_diaryadd.svg';
+import { DiaryItem } from './DiaryItem';
 
 export const DiaryMypage = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const DiaryMypage = () => {
       <div
         className={styles.mydiary}
         onClick={() => {
-          navigate("/post/cover");
+          navigate('/post/cover');
         }}
       >
         <Icon_DiaryAdd />
@@ -25,6 +25,7 @@ export const DiaryMypage = () => {
       </div>
       <DiaryItem />
       <DiaryItem />
+      <button> id 7번 </button>
     </>
   );
 };

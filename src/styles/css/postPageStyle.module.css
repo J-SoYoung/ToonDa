@@ -104,6 +104,10 @@ textarea::placeholder {
   color: #aaaaaa;
   cursor: pointer;
 }
+.imgBox .fileLoad img {
+  width: 100px;
+  height: 100px;
+}
 .imgBox input[type=file] {
   /* 파일 필드 숨기기 */
   position: absolute;
@@ -137,6 +141,7 @@ textarea::placeholder {
   height: 35px;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 10px;
 }
 .togglebox > label {
   position: absolute;
@@ -188,16 +193,15 @@ textarea::placeholder {
   text-align: right;
 }
 
-.categories {
-  border: 1px solid #f4f4f4;
-  margin-left: 15px;
-}
-
 .hashBox {
-  border: 1px solid red;
+  margin: 0 20px 10px;
+  border-bottom: 1px solid #0e4f3d;
 }
 .hashBox .hashInput {
   width: 100%;
+  height: 30px;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
 .hashBox .hashList {
   display: flex;
@@ -207,4 +211,7 @@ textarea::placeholder {
 }
 .hashBox .hashList > li {
   margin-right: 10px;
+}
+.hashBox .hashList button {
+  background-color: #ffffff;
 }

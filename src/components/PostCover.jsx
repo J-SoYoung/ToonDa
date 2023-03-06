@@ -24,6 +24,12 @@ export const PostCover = () => {
     }
   };
 
+  const handleHashTagDelete = (idx) => {
+    const newHashTags = [...hashtagArr];
+    newHashTags.splice(idx, 1);
+    setHashtagArr(newHashTags);
+  };
+
   const handleChangeImage = (e) => {
     if (e.target.files[0]) {
       setImageUrl(URL.createObjectURL(e.target.files[0]));
@@ -40,25 +46,17 @@ export const PostCover = () => {
     }
   };
 
-  const handleHashTagDelete = (idx) => {
-    console.log(idx);
-    const newHashTags = [...hashtagArr];
-    newHashTags.splice(idx, 1);
-    setHashtagArr(newHashTags);
-  };
-
   const { mutate: addPostCover } = useAddPostCover();
   const handlePostCoverAdd = () => {
-    // console.log('일기커버 추가', { isOpen, image, title });
     const newPostCover = {
       open: isOpen,
       img,
       title,
       hashtags: hashtagArr,
     };
-    // console.log(newPostCover);
     addPostCover(newPostCover);
   };
+
   return (
     <>
       <SubNavBar children="새 툰 다이어리 만들기" checkbox={true} handleFunc={handlePostCoverAdd} />
@@ -74,35 +72,18 @@ export const PostCover = () => {
           />
         </div>
 
-        <div className={styles.togglebox}>
-          <input
-            type="checkbox"
-            id="toggle"
-            hidden
-            onChange={(e) => {
-              console.log(e);
-              setIsOpen(!isOpen);
-            }}
-          />
-          <label htmlFor="toggle" className={styles.toggleSwitch}>
-            <span className={styles.toggleButton}></span>
-            <span className={isOpen ? styles.basic : styles.secret}>
-              {isOpen ? '공개' : '비공개'}
-            </span>
-          </label>
-        </div>
         <div className={styles.hashBox}>
-          <div>
-            <input
-              className={styles.hashInput}
-              type="text"
-              value={hashtag || ''}
-              placeholder={hashtagArr.length < 3 ? '#태그입력' : '해시태그는 3개까지만 설정 가능합니다'}
-              disabled={hashtagArr.length < 3 ? false : true}
-              onKeyUp={handleKeyUp}
-              onChange={(e) => setHashtag(e.target.value)}
-            />
-          </div>
+          <input
+            className={styles.hashInput}
+            type="text"
+            value={hashtag || ''}
+            placeholder={
+              hashtagArr.length < 3 ? '#태그입력' : '해시태그는 3개까지만 설정 가능합니다'
+            }
+            disabled={hashtagArr.length < 3 ? false : true}
+            onKeyUp={handleKeyUp}
+            onChange={(e) => setHashtag(e.target.value)}
+          />
           <ul className={styles.hashList}>
             {hashtagArr?.map((h, idx) => {
               return (
@@ -117,6 +98,23 @@ export const PostCover = () => {
           </ul>
         </div>
 
+        <div className={styles.togglebox}>
+          <input
+            type="checkbox"
+            id="toggle"
+            hidden
+            onChange={(e) => {
+              setIsOpen(!isOpen);
+            }}
+          />
+          <label htmlFor="toggle" className={styles.toggleSwitch}>
+            <span className={styles.toggleButton}></span>
+            <span className={isOpen ? styles.basic : styles.secret}>
+              {isOpen ? '공개' : '비공개'}
+            </span>
+          </label>
+        </div>
+
         <div className={styles.imgBox}>
           {imgContain ? (
             <div>
@@ -126,9 +124,7 @@ export const PostCover = () => {
             <>
               <div className={styles.fileLoad}>
                 <label htmlFor="file">
-                  <p>
-                    <img src={Icon_Gray_ImageAdd} />
-                  </p>
+                  <img src={Icon_Gray_ImageAdd} />
                   <p>오늘의 툰을 올려주세요</p>
                 </label>
               </div>

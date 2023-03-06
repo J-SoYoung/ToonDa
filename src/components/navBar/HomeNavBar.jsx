@@ -4,7 +4,7 @@ import { ReactComponent as Icon_Pencil } from '../../assets/pencil.svg';
 
 import styles from '../../styles/homePageStyle.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { saveItem } from '../../service/storage';
+import { localSaveItem } from '../../service/storage';
 
 export const HomeNavBar = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export const HomeNavBar = () => {
       <p
         onClick={() => {
           navigate('/home/new');
-          saveItem('tabKeyword', 'new');
+          localSaveItem('tabKeyword', 'new');
         }}
       >
         ToonDa
