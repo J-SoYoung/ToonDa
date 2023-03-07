@@ -23,25 +23,25 @@
   width: 440px;
 }
 
-.detailMain {
+.detailCover {
   position: relative;
   background-color: white;
 }
-.detailMain .imgBox {
+.detailCover .imgBox {
   width: 100%;
 }
-.detailMain .imgBox > img {
+.detailCover .imgBox > img {
   width: 100%;
   width: 440px;
   height: 500px;
   object-fit: cover;
 }
-.detailMain .diaryInfoBox {
+.detailCover .diaryInfoBox {
   display: flex;
   justify-content: flex-end;
   margin-top: -6px;
 }
-.detailMain .diaryInfoBox > div {
+.detailCover .diaryInfoBox > div {
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -55,32 +55,39 @@
   background-color: #0e4f3d;
   color: #ffffff;
 }
-.detailMain .diaryInfoBox > div > img {
+.detailCover .diaryInfoBox > div > img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin-right: 10px;
 }
-.detailMain .diaryInfoBox > div > div {
+.detailCover .diaryInfoBox > div > div {
   padding-top: 10px;
   box-sizing: border-box;
 }
-.detailMain .diaryInfoBox > div > div p {
+.detailCover .diaryInfoBox > div > div p {
   line-height: 22px;
   font-size: 15px;
 }
-.detailMain .diaryInfoBox > div > div p:first-child {
+.detailCover .diaryInfoBox > div > div p:first-child {
   font-size: 20px;
 }
-.detailMain .diaryTitle {
-  height: 200px;
+.detailCover .diaryTitle {
+  height: 150px;
   padding: 20px;
   box-sizing: border-box;
   margin-top: 20px;
 }
-.detailMain .diaryTitle p {
+.detailCover .diaryTitle p {
   font-size: 30px;
   margin-top: 10px;
+}
+.detailCover .hashtagBox {
+  padding: 16px;
+  box-sizing: border-box;
+}
+.detailCover .hashtagBox span {
+  font-size: 15px;
 }
 
 .detailList {

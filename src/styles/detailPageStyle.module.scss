@@ -1,4 +1,4 @@
-@import "./utils.module.scss";
+@import './utils.module.scss';
 
 .detail {
   height: 100vh;
@@ -7,7 +7,7 @@
 .detailBox {
   width: 440px;
 }
-.detailMain {
+.detailCover {
   position: relative;
   background-color: white;
   .imgBox {
@@ -50,12 +50,19 @@
     }
   }
   .diaryTitle {
-    height: 200px;
+    height: 150px;
     @include basicPadding();
     margin-top: 20px;
     p {
       font-size: $subMiddleTitle;
       margin-top: 10px;
+    }
+  }
+  .hashtagBox {
+    padding: 16px;
+    box-sizing: border-box;
+    span {
+      font-size: $smallSize;
     }
   }
 }

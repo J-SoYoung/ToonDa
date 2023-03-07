@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { ModalEditDeleteForm, ModalMessageForm } from "../ModalForm";
-import styles from "../../styles/navFooterStyle.module.scss";
+import { localSaveItem } from '../../service/storage.js';
+import { ModalEditDeleteForm, ModalMessageForm } from '../ModalForm';
+import styles from '../../styles/navFooterStyle.module.scss';
 
 import {
   Icon_G_ChevronLeft,
@@ -14,24 +15,28 @@ import {
   Icon_G_StarStroke,
   Icon_G_StarFull,
   Icon_G_Substribe,
-} from "../../assets/index";
+} from '../../assets/index';
+import { useDeleteDiary } from '../../service/api.js';
 
-export const MiddleNavBar = () => {
+export const MiddleNavBar = (diaryTitle) => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
 
-  // const [isMain, setIsMain] = useState(true);
-  const [isMain, setIsMain] = useState(false);
+  const [isCover, setIsCover] = useState(false);
   const [isLike, setIsLike] = useState(false);
 
   const handleDiaryEdit = () => {
-    console.log("다이어리 수정");
+    console.log('다이어리 수정');
   };
 
+  
+  const {mutate : deleteDiary} = useDeleteDiary()
   const handleDiaryDelete = () => {
-    console.log("다이어리 삭제");
+    console.log('다이어리 삭제');
+    deleteDiary(id)
   };
-
+  // console.log(diaryTitle);
   return (
     <div className={styles.middleNavBar}>
       <div className={styles.middleLeftBar}>
@@ -43,10 +48,11 @@ export const MiddleNavBar = () => {
           >
             <img src={Icon_G_ChevronLeft} />
           </p>
-          {isMain ? (
+
+          {isCover ? (
             <div
               onClick={() => {
-                navigate("/subscribe");
+                navigate('/subscribe');
               }}
             >
               <p>
@@ -58,17 +64,13 @@ export const MiddleNavBar = () => {
             <div className={styles.listPage}>
               <p
                 onClick={() => {
-                  navigate("/comment");
+                  navigate('/comment');
                 }}
               >
                 <img src={Icon_G_Comment} />
               </p>
-              <p onClick={() => alert("스타")}>
-                {isLike ? (
-                  <img src={Icon_G_StarFull} />
-                ) : (
-                  <img src={Icon_G_StarStroke} />
-                )}
+              <p onClick={() => alert('스타')}>
+                {isLike ? <img src={Icon_G_StarFull} /> : <img src={Icon_G_StarStroke} />}
               </p>
             </div>
           )}
@@ -81,7 +83,8 @@ export const MiddleNavBar = () => {
         </p>
         <p
           onClick={() => {
-            navigate("/post/list");
+            navigate(`/post/list/${id}`);
+            localSaveItem('diaryTitle', diaryTitle.diaryTitle);
           }}
         >
           <img src={Icon_G_Pencil} />
@@ -105,7 +108,7 @@ export const MiddleNavBar = () => {
             handleFunc1={handleDiaryEdit}
             handleFunc2={handleDiaryDelete}
           />,
-          document.body
+          document.body,
         )}
     </div>
   );

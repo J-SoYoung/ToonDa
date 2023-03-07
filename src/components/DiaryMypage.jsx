@@ -7,7 +7,7 @@ import { DiaryItem } from './DiaryItem';
 export const DiaryMypage = () => {
   const navigate = useNavigate();
   // 각자 페이지에 맞는 get요청하기
-
+  const enterDiary = () => {};
   return (
     <>
       <div
@@ -25,7 +25,22 @@ export const DiaryMypage = () => {
       </div>
       <DiaryItem />
       <DiaryItem />
-      <button> id 7번 </button>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <button
+          onClick={() => {
+            navigate('/detail/7');
+          }}
+        >
+          id 7번
+        </button>
+        <button
+          onClick={() => {
+            navigate('/detail/12');
+          }}
+        >
+          id 12번
+        </button>
+      </div>
     </>
   );
 };

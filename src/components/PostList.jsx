@@ -1,19 +1,25 @@
-import React, { useState } from "react";
-import { createPortal } from "react-dom";
-import { ModalDiarySelectForm } from "./ModalForm";
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
+import { useParams } from 'react-router-dom';
 
-import { SubNavBar } from "./navBar/SubNavBar";
-import { useInput } from "../hooks/useInput";
+import { localLoadItem } from '../service/storage.js';
+import { ModalDiarySelectForm } from './ModalForm';
+import { SubNavBar } from './navBar/SubNavBar';
+import { useInput } from '../hooks/useInput';
+import { useCreatePost } from '../service/api.js';
 
-import styles from "../styles/postPageStyle.module.scss";
-import { ReactComponent as Icon_ImageAdd } from "../assets/gray_image_add.svg";
+import styles from '../styles/postPageStyle.module.scss';
+import { ReactComponent as Icon_ImageAdd } from '../assets/gray_image_add.svg';
 
 export const PostList = () => {
+  const { id } = useParams();
+  const diaryTitle = localLoadItem('diaryTitle');
+
   const [showModal, setShowModal] = useState(false);
   const [imgContain, setImgContain] = useState(false);
 
-  const [imageUrl, setImageUrl] = useState("");
-  const [date, setDate] = useState("");
+  const [imageUrl, setImageUrl] = useState('');
+  const [date, setDate] = useState('');
   const [subTitle, onChangeSubTitle] = useInput();
   const [textarea, onChangeTextarea] = useInput();
 
@@ -22,53 +28,52 @@ export const PostList = () => {
       setImageUrl(URL.createObjectURL(e.target.files[0]));
       setImgContain(true);
     }
-    // const target = e.currentTarget;
-    // const files = target.files[0];
   };
 
   const handleImgEdit = () => {
-    if (window.confirm("사진을 바꾸시겠습니까?")) {
-      setImageUrl("");
+    if (window.confirm('사진을 바꾸시겠습니까?')) {
+      setImageUrl('');
       setImgContain(false);
     }
   };
 
-  const handlePostAdd = () => {
-    console.log(
-      "작성페이지 네비게이션 추가버튼",
-      imageUrl,
+  const { mutate: createPost } = useCreatePost();
+  const clickCreatePost = () => {
+    // console.log(imageUrl, subTitle, date, textarea);
+    const newPost = {
+      img: imageUrl,
       subTitle,
       date,
-      textarea
-    );
-    setDate("");
-    setImageUrl("");
+      content: textarea,
+    };
+    createPost({ id, newPost });
+    setDate('');
+    setImageUrl('');
     setImgContain(false);
   };
 
   return (
     <>
-      <SubNavBar
-        children="( 일기장 제목 ) 툰 일기"
-        checkbox={true}
-        handleFunc={handlePostAdd}
-        selectFunc={() => {
-          setShowModal(true);
-        }}
-      />
+      {id && diaryTitle ? (
+        <SubNavBar children={diaryTitle} checkbox={true} handleFunc={clickCreatePost} />
+      ) : (
+        <SubNavBar
+          children="( 일기장 제목 ) 툰 일기"
+          checkbox={true}
+          handleFunc={clickCreatePost}
+          selectFunc={() => {
+            setShowModal(true);
+          }}
+        />
+      )}
       {showModal &&
         createPortal(
           <ModalDiarySelectForm
             onClose={() => {
               setShowModal(false);
             }}
-            // title="프로필 변경"
-            // text1="앨범에서 선택"
-            // text2="기본 프로필로 설정"
-            // handleFunc1={handleImageEdit}
-            // handleFunc2={handleImageBasic}
           />,
-          document.body
+          document.body,
         )}
 
       <div className={styles.postBox}>
@@ -118,13 +123,7 @@ export const PostList = () => {
                   <p>오늘의 툰을 올려주세요</p>
                 </label>
               </div>
-              <input
-                type="file"
-                id="file"
-                accept="image/*"
-                required
-                onChange={handleChangeImage}
-              />
+              <input type="file" id="file" accept="image/*" required onChange={handleChangeImage} />
             </>
           )}
         </div>

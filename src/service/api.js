@@ -33,7 +33,7 @@ export const postLogin = async (data) => {
     .then((res) => {
       localSaveItem('isLogin', res.headers.authorization);
       localSaveItem('tabKeyword', 'new');
-      localSaveItem('email', res.data.data.email);
+      localSaveItem('username', res.data.data.username);
       localSaveItem('userId', res.data.data.userId);
       localSaveItem('profileImg', res.data.data.img);
       window.location.replace('/home/new');
@@ -71,8 +71,6 @@ export const useAddPostCover = () => {
 
 export const addPostCoverApi = async (payload) => {
   const { img, open, title, hashtags } = payload;
-  // console.log(image, isOpen, title);
-  console.log(payload);
   const formData = new FormData();
   formData.append('img', img);
   formData.append('open', open);
@@ -90,4 +88,52 @@ export const addPostCoverApi = async (payload) => {
     });
 
   return response;
+};
+
+export const getDetailDiaryApi = async (id) => {
+  const res = await baseURL.get(`/folders/${id}`);
+  return res;
+};
+
+const useCreatePostApi = async ({ id, newPost }) => {
+  const { img, content, subTitle, date } = newPost;
+  const formData = new FormData();
+
+  formData.append('img', img);
+  formData.append('content', content);
+  formData.append('subTitle', subTitle);
+  formData.append('date', date);
+
+  const res = await baseURL.post(`folders/${id}/diaries`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  console.log(res);
+  // return res;
+};
+export const useCreatePost = () => {
+  const QueryClient = useQueryClient();
+  return useMutation(useCreatePostApi, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries(['detail']);
+    },
+  });
+};
+const delelteDiaryApi = async (id) => {
+  const res = await baseURL.delete(`/folders/${id}`);
+  console.log(res);
+  window.location('/home/mydiary');
+};
+
+export const useDeleteDiary = () => {
+  const QueryClient = useQueryClient();
+  return useMutation(delelteDiaryApi, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries(['detail']);
+    },
+    onError: (data) => {
+      alert(data?.response.data.statusMsg);
+    },
+  });
 };
