@@ -10,6 +10,10 @@ export function localRemoveItem(key) {
   return localStorage.removeItem(key);
 }
 
+export function localAllRemoveItem() {
+  return localStorage.clear();
+}
+
 export function SessionSaveItem(key, value) {
   sessionStorage.setItem(key, value);
 }
