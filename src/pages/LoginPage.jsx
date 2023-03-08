@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
+import Lottie from 'lottie-react';
+import mainPhone from '../assets/lottie/mainPhone.json';
 
 import { DeveloperInfo } from '../components/DeveloperInfo';
 import { useInput } from '../hooks/useInput';
@@ -22,13 +25,16 @@ export const LoginPage = () => {
   const handleLogin = (data) => {
     postLogin(data);
   };
-  
+
   return (
     <>
       <div className={styles.loginBox}>
         <div className={styles.logoBox}>
-          <img src="/img/test.jpg" />
+          <div>
+            <Lottie animationData={mainPhone} />
+          </div>
           <h2>ToonDa</h2>
+          <h3>툰으로 하루 일상을 표현해봐요</h3>
         </div>
         <div className={styles.inputBox}>
           <div className={styles.inputList}>
