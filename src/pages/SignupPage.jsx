@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 
+import Lottie from 'lottie-react';
+import mainPhone from '../assets/lottie/mainPhone.json';
+
 import styles from '../styles/loginPageStyle.module.scss';
 import { Icon_G_EyeOpen, Icon_G_EyeClose } from '../assets/index';
 import { DeveloperInfo } from '../components/DeveloperInfo';
@@ -10,6 +13,7 @@ import { SignupEmail } from '../components/element/SignupEmail';
 import { SignupUsername } from '../components/element/SignupUsername';
 import { localLoadItem, SessionLoadItem } from '../service/storage';
 import { signupApi } from '../service/api';
+import { useEffect } from 'react';
 
 export const SignupPage = () => {
   const navigate = useNavigate();
@@ -43,7 +47,6 @@ export const SignupPage = () => {
       username: signupData[1].username,
       password: password,
     };
-    // console.log(newUser);
     signupApi(newUser);
   };
 
@@ -55,10 +58,12 @@ export const SignupPage = () => {
     <>
       <div className={styles.loginBox}>
         <div className={styles.signupTitleBox}>
-          <p>Toonda</p>
-          <span>툰다에 오신것을 환영합니다!</span>
+          <Lottie animationData={mainPhone} className={styles.lottie} />
+          <>
+            <p>Toonda</p>
+            <span>툰다에 오신것을 환영합니다!</span>
+          </>
         </div>
-
         <div className={styles.inputBox}>
           <SignupEmail />
           <SignupUsername />
@@ -103,7 +108,6 @@ export const SignupPage = () => {
             {password !== checkPassword && (
               <p className={styles.warning}> 비밀번호가 일치하지 않습니다.</p>
             )}
-
             <button
               className={styles.iconBtn}
               onClick={() => {
