@@ -28,17 +28,17 @@ export const DiaryMypage = () => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <button
           onClick={() => {
-            navigate('/detail/7');
+            navigate('/detail/18');
           }}
         >
-          id 7번
+          id n18번
         </button>
         <button
           onClick={() => {
-            navigate('/detail/12');
+            navigate('/detail/19');
           }}
         >
-          id 12번
+          id 19번
         </button>
       </div>
     </>

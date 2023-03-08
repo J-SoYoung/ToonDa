@@ -3,16 +3,16 @@ import { useMutation, useQueryClient } from 'react-query';
 import { localLoadItem, localSaveItem } from './storage';
 
 const loginbaseURL = axios.create({
-  baseURL: 'https://jm.rgngr.shop/api',
-  // baseURL: 'http://3.38.98.211:8080/api',
+  // baseURL: 'https://jm.rgngr.shop/api',
+  baseURL: 'http://3.38.98.211:8080/api',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
 });
 
 const baseURL = axios.create({
-  baseURL: 'https://jm.rgngr.shop/api',
-  // baseURL: 'http://3.38.98.211:8080/api',
+  // baseURL: 'https://jm.rgngr.shop/api',
+  baseURL: 'http://3.38.98.211:8080/api',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
@@ -37,6 +37,10 @@ export const postLogin = async (data) => {
       localSaveItem('userId', res.data.data.userId);
       localSaveItem('profileImg', res.data.data.img);
       window.location.replace('/home/new');
+      window.addEventListener('popstate', function () {
+        this.alert('만료된 페이지입니다-로그인');
+        console.log('만료된 페이지입니다-로그인');
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -56,20 +60,18 @@ export const checkUsernameApi = async (username) => {
 export const signupApi = async (payload) => {
   const res = await loginbaseURL.post(`/users/signup`, payload).then((res) => {
     console.log(res);
+    alert('회원가입을 축하합니다. 로그인 페이지로 이동합니다');
     window.location.replace('/');
   });
 };
 
-export const useAddPostCover = () => {
-  const QueryClient = useQueryClient();
-  return useMutation(addPostCoverApi, {
-    onSuccess: () => {
-      QueryClient.invalidateQueries(['postCover']);
-    },
-  });
+export const getDetailDiaryApi = async (id) => {
+  const res = await baseURL.get(`/folders/${id}`);
+  return res;
 };
 
-export const addPostCoverApi = async (payload) => {
+// 포스트 다이어리 생성
+const createPostCoverApi = async (payload) => {
   const { img, open, title, hashtags } = payload;
   const formData = new FormData();
   formData.append('img', img);
@@ -85,47 +87,57 @@ export const addPostCoverApi = async (payload) => {
     })
     .then((res) => {
       console.log(res);
+      window.location.replace('/home/mydiary');
+    })
+    .catch((res) => {
+      console.log(res);
     });
-
-  return response;
 };
 
-export const getDetailDiaryApi = async (id) => {
-  const res = await baseURL.get(`/folders/${id}`);
-  return res;
+export const useAddPostCover = () => {
+  const QueryClient = useQueryClient();
+  return useMutation(createPostCoverApi, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries(['postCover']);
+    },
+  });
 };
 
-const useCreatePostApi = async ({ id, newPost }) => {
+// 다이어리 리스트 생성
+const createPostListApi = async ({ id, newPost }) => {
   const { img, content, subTitle, date } = newPost;
   const formData = new FormData();
-
   formData.append('img', img);
   formData.append('content', content);
   formData.append('subTitle', subTitle);
   formData.append('date', date);
 
-  const res = await baseURL.post(`folders/${id}/diaries`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
-  console.log(res);
+  const res = await baseURL
+    .post(`folders/${id}/diaries`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then((res) => {
+      console.log(res);
+      window.location.replace('/home/mydiary');
+    });
   // return res;
 };
 export const useCreatePost = () => {
   const QueryClient = useQueryClient();
-  return useMutation(useCreatePostApi, {
+  return useMutation(createPostListApi, {
     onSuccess: () => {
       QueryClient.invalidateQueries(['detail']);
     },
   });
 };
+
 const delelteDiaryApi = async (id) => {
   const res = await baseURL.delete(`/folders/${id}`);
   console.log(res);
-  window.location('/home/mydiary');
+  window.location.replace('/home/mydiary');
 };
-
 export const useDeleteDiary = () => {
   const QueryClient = useQueryClient();
   return useMutation(delelteDiaryApi, {

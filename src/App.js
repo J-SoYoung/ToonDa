@@ -11,6 +11,7 @@ import { NotFound } from './pages/NotFound';
 import { SearchPage } from './pages/SearchPage';
 import { CommentPage } from './pages/CommentPage';
 import { SubscribePage } from './pages/SubscribePage';
+import { SettingPage } from './pages/SettingPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/subscribe" element={<SubscribePage />} />
         <Route path="/myprofile" element={<MyProfile />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/setting" element={<SettingPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
