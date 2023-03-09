@@ -14,7 +14,6 @@ export const SettingPage = () => {
   const handleBackButton = (event) => {
     event.preventDefault();
     alert('만료된 페이지입니다-세팅');
-    // window.history.pushState('/');
     navigate('/');
   };
 

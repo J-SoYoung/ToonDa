@@ -28,7 +28,7 @@ export const LoginPage = () => {
 
   return (
     <>
-      <div className={styles.loginBox}>
+      <form className={styles.loginBox} onSubmit={handleSubmit(handleLogin)}>
         <div className={styles.logoBox}>
           <div>
             <Lottie animationData={mainPhone} />
@@ -77,12 +77,18 @@ export const LoginPage = () => {
           </div>
         </div>
         <div className={styles.buttonBox}>
-          <button onClick={handleSubmit(handleLogin)}>로그인하기</button>
+          <button type="submit">로그인하기</button>
           <span>또는</span>
-          <button>카카오톡으로 로그인하기</button>
+          <button
+            onClick={() => {
+              alert('준비중인 서비스입니다');
+            }}
+          >
+            카카오톡으로 로그인하기
+          </button>
           <span onClick={() => navigate('/signup')}>회원가입하러 가기</span>
         </div>
-      </div>
+      </form>
       <DeveloperInfo />
     </>
   );

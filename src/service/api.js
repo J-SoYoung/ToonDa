@@ -19,7 +19,6 @@ const baseURL = axios.create({
 });
 
 baseURL.interceptors.request.use((config) => {
-  // console.log('req', config);
   // 서버에 요청할 때, 로컬 스토리지에 있는 토큰 헤더에 넣어 요청
   if (config.headers === undefined) return;
   const token = localLoadItem('isLogin');
@@ -36,11 +35,8 @@ export const postLogin = async (data) => {
       localSaveItem('username', res.data.data.username);
       localSaveItem('userId', res.data.data.userId);
       localSaveItem('profileImg', res.data.data.img);
+      // 페이지 기록을 스택에 남기지 않는다.
       window.location.replace('/home/new');
-      window.addEventListener('popstate', function () {
-        this.alert('만료된 페이지입니다-로그인');
-        console.log('만료된 페이지입니다-로그인');
-      });
     })
     .catch((err) => {
       console.log(err);
@@ -59,7 +55,6 @@ export const checkUsernameApi = async (username) => {
 
 export const signupApi = async (payload) => {
   const res = await loginbaseURL.post(`/users/signup`, payload).then((res) => {
-    console.log(res);
     alert('회원가입을 축하합니다. 로그인 페이지로 이동합니다');
     window.location.replace('/');
   });
