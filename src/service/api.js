@@ -3,16 +3,16 @@ import { useMutation, useQueryClient } from 'react-query';
 import { localLoadItem, localSaveItem } from './storage';
 
 const loginbaseURL = axios.create({
-  // baseURL: 'https://jm.rgngr.shop/api',
-  baseURL: 'http://3.38.98.211:8080/api',
+  baseURL: 'https://jm.rgngr.shop/api',
+  // baseURL: 'http://3.38.98.211:8080/api',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
 });
 
 const baseURL = axios.create({
-  // baseURL: 'https://jm.rgngr.shop/api',
-  baseURL: 'http://3.38.98.211:8080/api',
+  baseURL: 'https://jm.rgngr.shop/api',
+  // baseURL: 'http://3.38.98.211:8080/api',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
@@ -65,14 +65,16 @@ export const signupApi = async (payload) => {
   });
 };
 
+// 다이어리 folder + list = get
 export const getDetailDiaryApi = async (id) => {
   const res = await baseURL.get(`/folders/${id}`);
   return res;
 };
 
-// 포스트 다이어리 생성
+// 다이어리 folder 생성
 const createPostCoverApi = async (payload) => {
   const { img, open, title, hashtags } = payload;
+  console.log(payload);
   const formData = new FormData();
   formData.append('img', img);
   formData.append('open', open);
@@ -103,36 +105,7 @@ export const useAddPostCover = () => {
   });
 };
 
-// 다이어리 리스트 생성
-const createPostListApi = async ({ id, newPost }) => {
-  const { img, content, subTitle, date } = newPost;
-  const formData = new FormData();
-  formData.append('img', img);
-  formData.append('content', content);
-  formData.append('subTitle', subTitle);
-  formData.append('date', date);
-
-  const res = await baseURL
-    .post(`folders/${id}/diaries`, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .then((res) => {
-      console.log(res);
-      window.location.replace('/home/mydiary');
-    });
-  // return res;
-};
-export const useCreatePost = () => {
-  const QueryClient = useQueryClient();
-  return useMutation(createPostListApi, {
-    onSuccess: () => {
-      QueryClient.invalidateQueries(['detail']);
-    },
-  });
-};
-
+// 다이어리 folder 삭제
 const delelteDiaryApi = async (id) => {
   const res = await baseURL.delete(`/folders/${id}`);
   console.log(res);
@@ -146,6 +119,39 @@ export const useDeleteDiary = () => {
     },
     onError: (data) => {
       alert(data?.response.data.statusMsg);
+    },
+  });
+};
+
+// 다이어리 list 생성
+const createPostListApi = async ({ id, newPost }) => {
+  console.log(newPost);
+  const { img, content, title, date } = newPost;
+  const formData = new FormData();
+  formData.append('img', img);
+  formData.append('content', content);
+  formData.append('title', title);
+  formData.append('date', date);
+
+  const res = await baseURL
+    .post(`folders/${id}/diaries`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then((res) => {
+      console.log(res);
+      window.location.replace('/home/mydiary');
+    })
+    .catch((res) => {
+      console.log(res);
+    });
+};
+export const useCreatePost = () => {
+  const QueryClient = useQueryClient();
+  return useMutation(createPostListApi, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries(['detail']);
     },
   });
 };

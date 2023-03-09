@@ -1,9 +1,9 @@
-//Lottie style
-import Lottie from 'lottie-react';
 import { useNavigate } from 'react-router-dom';
-import badpage from '../assets/lottie/badpage.json';
 import { localSaveItem } from '../service/storage';
 import styles from '../styles/global.module.scss';
+
+import Lottie from 'lottie-react';
+import badpage from '../assets/lottie/badpage.json';
 
 export const NotFound = () => {
   const navigate = useNavigate();
