@@ -1,16 +1,25 @@
-@import "./utils.module.scss";
-@import "./navFooterStyle.module.scss";
+@import './utils.module.scss';
+@import './navFooterStyle.module.scss';
 
 .homeBox {
   padding-top: 60px;
   box-sizing: border-box;
+}
+.homeBanner {
+  height: 200px;
+  margin-bottom: 10px;
+}
+.carousel {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 .homeTab {
   @include basicAlign();
   padding: 15px 20px 0;
   width: 100%;
   height: 50px;
-  margin-bottom: 5px;
+  margin: 20px 0 5px;
   button {
     width: 110px;
     border-bottom: 2px solid $darkgray;
@@ -53,7 +62,7 @@
         word-break: keep-all;
         line-height: 22px;
       }
-      & > button {
+      & > div > button {
         padding: 10px 10px 5px;
         box-sizing: border-box;
         border-radius: $radius-basic;
@@ -61,6 +70,10 @@
         font-weight: $light;
         color: $white;
         background-color: $green;
+      }
+      button:last-child {
+        background-color: $darkgray;
+        margin-left: 4px;
       }
     }
   }
