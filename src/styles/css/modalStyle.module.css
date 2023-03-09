@@ -42,7 +42,29 @@
   box-sizing: border-box;
   font-size: 20px;
 }
-.modalBox button {
+
+.modalConfirmButtonBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+.modalConfirmButtonBox button {
+  width: 50%;
+  height: 40px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.modalConfirmButtonBox button:last-child {
+  margin-left: 6px;
+}
+.modalConfirmButtonBox button:hover {
+  background-color: #e5e5e5;
+}
+
+.modalMessageButtonBox button {
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
@@ -52,11 +74,11 @@
   text-align: left;
   color: #000000;
 }
-.modalBox button:last-child {
+.modalMessageButtonBox button:last-child {
   border: none;
   margin-top: 20px;
   text-align: center;
 }
-.modalBox button:hover {
+.modalMessageButtonBox button:hover {
   background-color: #f4f4f4;
 }

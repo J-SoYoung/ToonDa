@@ -26,6 +26,13 @@
   cursor: default !important;
 }
 
+.success {
+  color: #0e4f3d !important;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px !important;
+}
+
 .loginBox {
   padding: 20px;
   box-sizing: border-box;
@@ -47,19 +54,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 20px;
   box-sizing: border;
   margin-bottom: 50px;
+}
+.logoBox div {
+  width: 120px;
 }
 .logoBox h2 {
   font-family: "HSGyeoulNoonkott20";
   font-size: 60px;
   color: #000000;
 }
-.logoBox img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+.logoBox h3 {
+  margin-top: -20px;
 }
 
 .signupTitleBox {
@@ -67,8 +75,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
-  margin-bottom: 50px;
+  margin: 50px 0;
+}
+.signupTitleBox .lottie {
+  width: 60px;
+  position: absolute;
+  right: 65px;
+  top: -20px;
 }
 .signupTitleBox > p {
   margin-bottom: -5px;
