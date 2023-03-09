@@ -1,9 +1,9 @@
-import React from "react";
-import styles from "../styles/homePageStyle.module.scss";
-import Icon_subscribe from "../assets/black_subscribe.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styles from '../styles/homePageStyle.module.scss';
+import Icon_subscribe from '../assets/black_subscribe.svg';
+import { Link } from 'react-router-dom';
 
-export const DiaryItem = () => {
+export const HomeMiniDiary = () => {
   return (
     <Link to="/detail/1">
       <div className={styles.diaryItem}>

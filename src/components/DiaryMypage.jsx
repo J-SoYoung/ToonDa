@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/homePageStyle.module.scss';
 import { ReactComponent as Icon_DiaryAdd } from '../assets/black_diaryadd.svg';
-import { DiaryItem } from './DiaryItem';
+import { HomeMiniDiary } from './HomeMiniDiary';
 
 export const DiaryMypage = () => {
   const navigate = useNavigate();
@@ -23,8 +23,8 @@ export const DiaryMypage = () => {
           만들기
         </p>
       </div>
-      <DiaryItem />
-      <DiaryItem />
+      <HomeMiniDiary />
+      <HomeMiniDiary />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <button
           onClick={() => {

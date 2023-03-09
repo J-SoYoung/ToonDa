@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { localSaveItem } from '../../service/storage.js';
-import { ModalEditDeleteForm, ModalMessageForm } from '../ModalForm';
+import { ModalEditDeleteForm, ModalMessageForm } from '../common/ModalForm';
 import styles from '../../styles/navFooterStyle.module.scss';
 
 import {
@@ -18,25 +18,25 @@ import {
 } from '../../assets/index';
 import { useDeleteDiary } from '../../service/api.js';
 
-export const MiddleNavBar = (diaryTitle) => {
+export const MiddleNavBar = ({ diaryTitle, isCover }) => {
+  console.log(diaryTitle);
+  console.log(isCover);
   const navigate = useNavigate();
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
 
-  const [isCover, setIsCover] = useState(false);
   const [isLike, setIsLike] = useState(false);
 
   const handleDiaryEdit = () => {
     console.log('다이어리 수정');
   };
 
-  
-  const {mutate : deleteDiary} = useDeleteDiary()
+  const { mutate: deleteDiary } = useDeleteDiary();
   const handleDiaryDelete = () => {
     console.log('다이어리 삭제');
-    deleteDiary(id)
+    deleteDiary(id);
   };
-  // console.log(diaryTitle);
+
   return (
     <div className={styles.middleNavBar}>
       <div className={styles.middleLeftBar}>
@@ -51,6 +51,7 @@ export const MiddleNavBar = (diaryTitle) => {
 
           {isCover ? (
             <div
+              className={styles.iconMargin}
               onClick={() => {
                 navigate('/subscribe');
               }}
@@ -61,7 +62,7 @@ export const MiddleNavBar = (diaryTitle) => {
               <span>1명 구독중</span>
             </div>
           ) : (
-            <div className={styles.listPage}>
+            <div className={styles.iconMargin}>
               <p
                 onClick={() => {
                   navigate('/comment');
