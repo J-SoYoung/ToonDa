@@ -22,7 +22,7 @@
   top: 0;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: #0e4f3d;
 }
 .homeNav > p {
@@ -48,7 +48,7 @@
   align-items: center;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: #ffffff;
 }
 .middleNavBar > div {
@@ -71,7 +71,7 @@
   align-items: center;
   cursor: pointer;
 }
-.middleNavBar .listPage > p {
+.middleNavBar .iconMargin > p {
   cursor: pointer;
   margin: 0 8px;
 }
@@ -88,7 +88,7 @@
   top: 0;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: #0e4f3d;
   color: white;
 }

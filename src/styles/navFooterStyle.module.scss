@@ -6,7 +6,7 @@
   top: 0;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: $color;
 }
 
@@ -14,7 +14,7 @@
   @include basicAlign();
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: $color;
 }
 
@@ -54,7 +54,7 @@
       cursor: pointer;
     }
   }
-  .listPage > p {
+  .iconMargin > p {
     cursor: pointer;
     margin: 0 8px;
   }

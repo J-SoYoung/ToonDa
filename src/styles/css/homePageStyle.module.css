@@ -37,7 +37,7 @@
   top: 0;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: #0e4f3d;
 }
 .homeNav > p {
@@ -63,7 +63,7 @@
   align-items: center;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: #ffffff;
 }
 .middleNavBar > div {
@@ -86,7 +86,7 @@
   align-items: center;
   cursor: pointer;
 }
-.middleNavBar .listPage > p {
+.middleNavBar .iconMargin > p {
   cursor: pointer;
   margin: 0 8px;
 }
@@ -103,7 +103,7 @@
   top: 0;
   width: 440px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   background-color: #0e4f3d;
   color: white;
 }
@@ -137,6 +137,17 @@
   box-sizing: border-box;
 }
 
+.homeBanner {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.carousel {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 .homeTab {
   display: flex;
   justify-content: space-between;
@@ -144,7 +155,7 @@
   padding: 15px 20px 0;
   width: 100%;
   height: 50px;
-  margin-bottom: 5px;
+  margin: 20px 0 5px;
 }
 .homeTab button {
   width: 110px;
@@ -198,7 +209,7 @@
   word-break: keep-all;
   line-height: 22px;
 }
-.homeUserInfo .userInfo > div > button {
+.homeUserInfo .userInfo > div > div > button {
   padding: 10px 10px 5px;
   box-sizing: border-box;
   border-radius: 8px;
@@ -206,6 +217,10 @@
   font-weight: 500;
   color: #ffffff;
   background-color: #0e4f3d;
+}
+.homeUserInfo .userInfo > div button:last-child {
+  background-color: #aaaaaa;
+  margin-left: 4px;
 }
 
 .diaryList {
