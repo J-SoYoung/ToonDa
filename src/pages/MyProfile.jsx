@@ -5,7 +5,7 @@ import { SubNavBar } from '../components/navBar/SubNavBar';
 import styles from '../styles/myprofilePage.module.scss';
 import { ReactComponent as Icon_WhitePencil } from '../assets/white_pencil.svg';
 import { useInput } from '../hooks/useInput';
-import { ModalMessageForm } from '../components/ModalForm';
+import { ModalMessageForm } from '../components/common/ModalForm';
 
 export const MyProfile = () => {
   const [showModal, setShowModal] = useState(false);
