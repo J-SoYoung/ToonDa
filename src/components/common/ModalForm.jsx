@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import useCloseModal from '../hooks/useCloseModal';
-import styles from '../styles/modalStyle.module.scss';
+import useCloseModal from '../../hooks/useCloseModal';
+import styles from '../../styles/modalStyle.module.scss';
 
 export const ModalConfirmForm = ({ onClose, message, handleFunc }) => {
   const modalRef = useRef(null);
@@ -44,9 +44,12 @@ export const ModalDiarySelectForm = ({ onClose }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalBox} ref={modalRef}>
-        <p>내 일기장 선택</p>
-        <button>예</button>
-        <button onClick={onClose}>취소</button>
+        <div className={styles.modalMessageButtonBox}>
+          <button>내 일기장 선택</button>
+          <button>내 일기장 선택</button>
+          <button>내 일기장 선택</button>
+          <button onClick={onClose}>취소</button>
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import styles from '../styles/settingPage.module.scss';
 import { SubNavBar } from '../components/navBar/SubNavBar';
 import { localAllRemoveItem } from '../service/storage';
-import { ModalConfirmForm } from '../components/ModalForm';
+import { ModalConfirmForm } from '../components/common/ModalForm';
 
 export const SettingPage = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ export const SettingPage = () => {
   const handleBackButton = (event) => {
     event.preventDefault();
     alert('만료된 페이지입니다-세팅');
+    // window.history.pushState('/');
     navigate('/');
   };
 
