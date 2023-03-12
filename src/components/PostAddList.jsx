@@ -11,7 +11,7 @@ import { useCreatePost } from '../service/api.js';
 import styles from '../styles/postPageStyle.module.scss';
 import { ReactComponent as Icon_ImageAdd } from '../assets/gray_image_add.svg';
 
-export const PostList = () => {
+export const PostAddList = () => {
   const { id } = useParams();
   const diaryTitle = localLoadItem('diaryTitle');
 
@@ -24,7 +24,7 @@ export const PostList = () => {
   const [title, onChangeTitle] = useInput();
   const [textarea, onChangeTextarea] = useInput();
 
-  const handleChangeImage = (e) => {
+  const handleCreateImage = (e) => {
     if (e.target.files[0]) {
       setImageUrl(URL.createObjectURL(e.target.files[0]));
       setImgContain(true);
@@ -43,6 +43,9 @@ export const PostList = () => {
   const { mutate: createPost } = useCreatePost();
   const clickCreatePost = () => {
     console.log(imageUrl, title, date, textarea);
+    if(img===''){
+
+    }
     const newPost = {
       img,
       title,
@@ -128,7 +131,7 @@ export const PostList = () => {
                   <p>오늘의 툰을 올려주세요</p>
                 </label>
               </div>
-              <input type="file" id="file" accept="image/*" required onChange={handleChangeImage} />
+              <input type="file" id="file" accept="image/*" required onChange={handleCreateImage} />
             </>
           )}
         </div>

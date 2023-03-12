@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import styles from '../styles/postPageStyle.module.scss';
 import { Icon_Gray_ImageAdd, Icon_Gray_X } from '../assets/index';
 
-export const PostCover = () => {
+export const PostAddCover = () => {
   const [title, onChangeDiaryTitle] = useInput();
 
   const [hashtag, setHashtag] = useState('');
