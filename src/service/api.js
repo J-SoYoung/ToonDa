@@ -39,8 +39,7 @@ export const postLogin = async (data) => {
       window.location.replace('/home/new');
     })
     .catch((err) => {
-      console.log(err);
-      alert(err);
+      alert(err.response.data.statusMsg);
     });
 };
 export const checkEmailApi = async (email) => {
@@ -136,12 +135,13 @@ const createPostListApi = async ({ id, newPost }) => {
     })
     .then((res) => {
       console.log(res);
-      window.location.replace('/home/mydiary');
+      window.location.replace(`/detail/${id}`);
     })
     .catch((res) => {
       console.log(res);
     });
 };
+
 export const useCreatePost = () => {
   const QueryClient = useQueryClient();
   return useMutation(createPostListApi, {

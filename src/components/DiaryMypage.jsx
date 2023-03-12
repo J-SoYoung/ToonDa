@@ -40,6 +40,20 @@ export const DiaryMypage = () => {
         >
           id 19번
         </button>
+        <button
+          onClick={() => {
+            navigate('/detail/20');
+          }}
+        >
+          id 20번
+        </button>
+        <button
+          onClick={() => {
+            navigate('/detail/21');
+          }}
+        >
+          id 21번
+        </button>
       </div>
     </>
   );

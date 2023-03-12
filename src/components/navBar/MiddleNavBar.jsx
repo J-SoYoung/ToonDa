@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { localSaveItem } from '../../service/storage.js';
+import { localLoadItem, localSaveItem } from '../../service/storage.js';
 import { ModalEditDeleteForm, ModalMessageForm } from '../common/ModalForm';
 import styles from '../../styles/navFooterStyle.module.scss';
 
@@ -18,9 +18,7 @@ import {
 } from '../../assets/index';
 import { useDeleteDiary } from '../../service/api.js';
 
-export const MiddleNavBar = ({ diaryTitle, isCover }) => {
-  console.log(diaryTitle);
-  console.log(isCover);
+export const MiddleNavBar = ({ isCover }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +32,7 @@ export const MiddleNavBar = ({ diaryTitle, isCover }) => {
   const { mutate: deleteDiary } = useDeleteDiary();
   const handleDiaryDelete = () => {
     console.log('다이어리 삭제');
-    deleteDiary(id);
+    // deleteDiary(id);
   };
 
   return (
@@ -85,7 +83,6 @@ export const MiddleNavBar = ({ diaryTitle, isCover }) => {
         <p
           onClick={() => {
             navigate(`/post/list/${id}`);
-            localSaveItem('diaryTitle', diaryTitle.diaryTitle);
           }}
         >
           <img src={Icon_G_Pencil} />

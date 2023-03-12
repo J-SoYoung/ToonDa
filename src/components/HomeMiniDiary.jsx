@@ -8,7 +8,7 @@ export const HomeMiniDiary = () => {
     <Link to="/detail/1">
       <div className={styles.diaryItem}>
         <div className={styles.imgBackground}>
-          <img src="/img/2.jpg" />
+          <img src="/img/toondaBasic.png" />
         </div>
         <div className={styles.content}>
           <p>오늘의툰오늘의툰오늘의툰 </p>
