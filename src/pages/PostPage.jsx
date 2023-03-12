@@ -1,18 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { useParams } from "react-router-dom";
-import { PostList } from "../components/PostList";
-import { PostCover } from "../components/PostCover";
+import { useParams } from 'react-router-dom';
+import { PostAddList } from '../components/PostAddList';
+import { PostAddCover } from '../components/PostAddCover';
 
 export const PostPage = () => {
   const { keyword } = useParams();
   console.log(keyword);
-  // const keyowrd = loadItem("postKeyword");
-  // const [postKeyword, setPostKeyword] = useState(keyowrd);
 
-  return (
-    <>
-      {keyword === "cover" ? <PostCover /> : <PostList />}
-    </>
-  );
+  return <>{keyword === 'cover' ? <PostAddCover /> : <PostAddList />}</>;
 };

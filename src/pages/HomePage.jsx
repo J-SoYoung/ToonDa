@@ -12,20 +12,6 @@ import { CarouselImg } from '../components/element/CarouselImg';
 
 export const HomePage = () => {
   const { keyword } = useParams();
-  const navigate = useNavigate();
-
-  // function handleBackButton(event) {
-  //   event.preventDefault();
-  //   console.log('만료된 페이지입니다 - 홈페이지');
-  //   alert('만료된 페이지입니다 - 홈페이지');
-  // }
-  // useEffect(() => {
-  //   window.addEventListener('popstate', handleBackButton);
-  //   return () => {
-  //     window.removeEventListener('popstate', handleBackButton);
-  //   };
-  // }, []);
-
   return (
     <div className={styles.homeBox}>
       <HomeNavBar />

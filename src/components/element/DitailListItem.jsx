@@ -2,12 +2,12 @@ import React from 'react';
 import styles from '../../styles/detailPageStyle.module.scss';
 import { MiddleNavBar } from '../navBar/MiddleNavBar';
 
-export const DiaryListItem = ({ diaryList }) => {
+export const DitailListItem = ({ diaryList }) => {
   return (
     <>
       {diaryList.map((list) => {
         return (
-          <div className={styles.detailList}>
+          <div key={list.modifiedAt} className={styles.detailList}>
             <div className={styles.ListSubTitle}>
               <p>{list.date}</p>
               <p>{list.title}</p>
