@@ -30,7 +30,7 @@ export const PostAddCover = () => {
     setHashtagArr(newHashTags);
   };
 
-  const handleChangeImage = (e) => {
+  const handleCreateImage = (e) => {
     if (e.target.files[0]) {
       setImageUrl(URL.createObjectURL(e.target.files[0]));
       setImgContain(true);
@@ -54,6 +54,7 @@ export const PostAddCover = () => {
       title,
       hashtags: hashtagArr,
     };
+    console.log(newPostCover)
     addPostCover(newPostCover);
   };
 
@@ -125,10 +126,10 @@ export const PostAddCover = () => {
               <div className={styles.fileLoad}>
                 <label htmlFor="file">
                   <img src={Icon_Gray_ImageAdd} />
-                  <p>오늘의 툰을 올려주세요</p>
+                  <p>다이어리 cover를 올려주세요</p>
                 </label>
               </div>
-              <input type="file" id="file" accept="image/*" required onChange={handleChangeImage} />
+              <input type="file" id="file" accept="image/*" required onChange={handleCreateImage} />
             </>
           )}
         </div>

@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { localLoadItem, localSaveItem } from '../../service/storage.js';
-import { ModalEditDeleteForm, ModalMessageForm } from '../common/ModalForm';
+import { ModalConfirmForm, ModalMessageForm } from '../common/ModalForm';
 import styles from '../../styles/navFooterStyle.module.scss';
 
 import {
@@ -18,21 +18,23 @@ import {
 } from '../../assets/index';
 import { useDeleteDiary } from '../../service/api.js';
 
-export const MiddleNavBar = ({ isCover }) => {
+export const MiddleNavBarCover = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [showModal, setShowModal] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const [isLike, setIsLike] = useState(false);
 
   const handleDiaryEdit = () => {
     console.log('다이어리 수정');
+    navigate(`/post/cover/edit/${id}`);
   };
 
   const { mutate: deleteDiary } = useDeleteDiary();
   const handleDiaryDelete = () => {
     console.log('다이어리 삭제');
-    // deleteDiary(id);
+    deleteDiary(id);
   };
 
   return (
@@ -46,33 +48,17 @@ export const MiddleNavBar = ({ isCover }) => {
           >
             <img src={Icon_G_ChevronLeft} />
           </p>
-
-          {isCover ? (
-            <div
-              className={styles.iconMargin}
-              onClick={() => {
-                navigate('/subscribe');
-              }}
-            >
-              <p>
-                <img src={Icon_G_Substribe} />
-              </p>
-              <span>1명 구독중</span>
-            </div>
-          ) : (
-            <div className={styles.iconMargin}>
-              <p
-                onClick={() => {
-                  navigate('/comment');
-                }}
-              >
-                <img src={Icon_G_Comment} />
-              </p>
-              <p onClick={() => alert('스타')}>
-                {isLike ? <img src={Icon_G_StarFull} /> : <img src={Icon_G_StarStroke} />}
-              </p>
-            </div>
-          )}
+          <div
+            className={styles.iconMargin}
+            onClick={() => {
+              navigate('/subscribe');
+            }}
+          >
+            <p>
+              <img src={Icon_G_Substribe} />
+            </p>
+            <span>1명 구독중</span>
+          </div>
         </div>
       </div>
 
@@ -82,29 +68,43 @@ export const MiddleNavBar = ({ isCover }) => {
         </p>
         <p
           onClick={() => {
-            navigate(`/post/list/${id}`);
+            navigate(`/post/list/add/${id}`);
           }}
         >
           <img src={Icon_G_Pencil} />
         </p>
         <p
           onClick={() => {
-            setShowModal(true);
+            setConfirmModal(true);
           }}
         >
           <img src={Icon_G_Memu} />
         </p>
       </div>
-      {showModal &&
+      {confirmModal &&
         createPortal(
           <ModalMessageForm
             onClose={() => {
-              setShowModal(false);
+              setConfirmModal(false);
             }}
             text1="일기장 수정"
             text2="일기장 삭제"
             handleFunc1={handleDiaryEdit}
-            handleFunc2={handleDiaryDelete}
+            handleFunc2={() => {
+              setConfirmModal(false);
+              setDeleteModal(true);
+            }}
+          />,
+          document.body,
+        )}
+      {deleteModal &&
+        createPortal(
+          <ModalConfirmForm
+            onClose={() => {
+              setDeleteModal(false);
+            }}
+            message="정말 삭제하시겠습니까?"
+            handleFunc={handleDiaryDelete}
           />,
           document.body,
         )}

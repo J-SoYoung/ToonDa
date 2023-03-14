@@ -54,3 +54,4 @@ export const ModalDiarySelectForm = ({ onClose }) => {
     </div>
   );
 };
+

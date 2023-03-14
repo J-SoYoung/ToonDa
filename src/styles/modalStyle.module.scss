@@ -46,6 +46,7 @@
 }
 
 .modalMessageButtonBox {
+  width: 100%;
   button {
     width: 100%;
     padding: 15px;
@@ -63,5 +64,20 @@
   }
   button:hover {
     background-color: $BGgray;
+  }
+}
+
+.imgBox {
+  width: 100%;
+  margin-bottom: 20px;
+  & > p {
+    font-size: $middleSize;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
   }
 }
