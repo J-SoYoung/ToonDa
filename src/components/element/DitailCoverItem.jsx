@@ -1,10 +1,12 @@
 import React from 'react';
-import { MiddleNavBar } from '../navBar/MiddleNavBar';
+import { MiddleNavBar } from '../navBar/MiddleNavBarList';
 import styles from '../../styles/detailPageStyle.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { MiddleNavBarCover } from '../navBar/MiddleNavBarCover';
 
 export const DitailCoverItem = ({ diaryData }) => {
   const navigate = useNavigate();
+  // console.log(diaryData);
 
   const moveSearchPage = (item) => {
     console.log('해시태그내용', item);
@@ -14,18 +16,17 @@ export const DitailCoverItem = ({ diaryData }) => {
   return (
     <div className={styles.detailCover}>
       <div className={styles.imgBox}>
-        <img src={diaryData?.img} />
+        <img src={diaryData?.folderImg} />
       </div>
       <div className={styles.diaryInfoBox}>
         <div>
-          <img src="/img/user.jpg" />
+          <img src={diaryData?.userImg ? diaryData?.userImg : '/img/user.jpg'} />
           <div>
-            <p>하루의 생각</p>
-            <p>우리는 매일 생각하며 살아간다</p>
+            <p>{diaryData?.username}</p>
           </div>
         </div>
       </div>
-      <MiddleNavBar isCover={true} />
+      <MiddleNavBarCover isCover={true} folderId={diaryData?.folderId} />
 
       <div className={styles.diaryTitle}>
         <p>{diaryData?.title}</p>
@@ -33,14 +34,19 @@ export const DitailCoverItem = ({ diaryData }) => {
       </div>
 
       <div className={styles.hashtagBox}>
-        <span
-          onClick={() => {
-            moveSearchPage(diaryData?.hashtag1);
-          }}
-        >
-          {diaryData?.hashtag1 ? `#${diaryData?.hashtag1} ` : null}
-        </span>
-        <span
+        {diaryData?.hashtagList.map((hash) => {
+          console.log(hash);
+          // return (
+          // )
+        })}
+        {/* <span
+            onClick={() => {
+              moveSearchPage(hash?.hashtag1);
+            }}
+          >
+            {diaryData?.hashtag1 ? `#${diaryData?.hashtag1} ` : null}
+          </span>; */}
+        {/* <span
           onClick={() => {
             moveSearchPage(diaryData?.hashtag2);
           }}
@@ -53,7 +59,7 @@ export const DitailCoverItem = ({ diaryData }) => {
           }}
         >
           {diaryData?.hashtag3 ? `#${diaryData?.hashtag3} ` : null}
-        </span>
+        </span> */}
       </div>
     </div>
   );

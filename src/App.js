@@ -21,7 +21,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/home/:keyword" element={<HomePage />} />
         <Route path="/post/:keyword" element={<PostPage />} />
-        <Route path="/post/:keyword/:id" element={<PostPage />} />
+        <Route path="/post/:keyword/:detailkey/:id" element={<PostPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/comment" element={<CommentPage />} />
         <Route path="/subscribe" element={<SubscribePage />} />

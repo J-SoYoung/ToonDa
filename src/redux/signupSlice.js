@@ -10,22 +10,14 @@ const signupSlice = createSlice({
   name: 'signup',
   initialState,
   reducers: {
-    // signupData: (state, action) => {
-    //   console.log('state', current(state));
-    //   console.log('action', action.payload);
-    //   // state.(init)=> 기본state = 바꿀 값 넣어주기
-    //   state.signup = [action.payload, ...state.signup];
-    // },
     emailData: (state, action) => {
       console.log('state', current(state));
       console.log('action', action.payload);
-      // state.(init)=> 기본state = 바꿀 값 넣어주기
       state.signup = [...state.signup, action.payload];
     },
     usernamData: (state, action) => {
       console.log('state', current(state));
       console.log('action', action.payload);
-      // state.(init)=> 기본state = 바꿀 값 넣어주기
       state.signup = [...state.signup, action.payload];
     },
   },

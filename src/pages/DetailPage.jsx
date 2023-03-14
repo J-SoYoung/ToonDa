@@ -3,9 +3,7 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import styles from '../styles/detailPageStyle.module.scss';
 
-import Lottie from 'lottie-react';
-import loading from '../assets/lottie/loading.json';
-
+import { LoadingPage } from '../components/common/LoadingPage';
 import { localSaveItem } from '../service/storage';
 import { getDetailDiaryApi } from '../service/api';
 import { DitailListItem, DitailCoverItem } from '../components/element/index';
@@ -19,17 +17,14 @@ export const DetailPage = () => {
 
   const diaryData = data?.data.data;
   const diaryList = diaryData?.diaryList;
+  // console.log(diaryData);
 
   useEffect(() => {
     localSaveItem('diaryTitle', diaryData?.title);
   }, [diaryData]);
 
   if (isLoading) {
-    return (
-      <>
-        <Lottie animationData={loading} />
-      </>
-    );
+    return <LoadingPage />;
   }
 
   return (

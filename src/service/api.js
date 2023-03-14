@@ -25,7 +25,7 @@ baseURL.interceptors.request.use((config) => {
   config.headers['Authorization'] = `${token}`;
   return config;
 });
-
+// 로그인
 export const postLogin = async (data) => {
   await loginbaseURL
     .post('/users/login', data)
@@ -42,16 +42,17 @@ export const postLogin = async (data) => {
       alert(err.response.data.statusMsg);
     });
 };
+// 이메일 중복체크
 export const checkEmailApi = async (email) => {
   const res = await loginbaseURL.get(`/users/email-check/${email.email}`);
   return res;
 };
-
+// 닉네임 중복체크
 export const checkUsernameApi = async (username) => {
   const res = await loginbaseURL.get(`/users/username-check/${username.username}`);
   return res;
 };
-
+// 회원가입
 export const signupApi = async (payload) => {
   const res = await loginbaseURL.post(`/users/signup`, payload).then((res) => {
     alert('회원가입을 축하합니다. 로그인 페이지로 이동합니다');
@@ -68,7 +69,6 @@ export const getDetailDiaryApi = async (id) => {
 // 다이어리 folder 생성
 const createPostCoverApi = async (payload) => {
   const { img, open, title, hashtags } = payload;
-  console.log(payload);
   const formData = new FormData();
   formData.append('img', img);
   formData.append('open', open);
@@ -141,10 +141,47 @@ const createPostListApi = async ({ id, newPost }) => {
       console.log(res);
     });
 };
-
 export const useCreatePost = () => {
   const QueryClient = useQueryClient();
   return useMutation(createPostListApi, {
+    onSuccess: () => {
+      QueryClient.invalidateQueries(['detail']);
+    },
+  });
+};
+
+// 다이어리 커버 수정 데이터 받기
+export const diaryCover_EditDataApi = async (id) => {
+  const res = await baseURL.get(`/folders/${id}/update-page`);
+  return res;
+};
+
+// 다이어리 커버 수정
+const editCoverApi = async ({ newPostCover, id }) => {
+  console.log(newPostCover, id);
+  const formData = new FormData();
+  formData.append('img', newPostCover.img);
+  formData.append('open', newPostCover.open);
+  formData.append('title', newPostCover.title);
+  formData.append('hashtags', newPostCover.hashtags);
+
+  const response = await baseURL
+    .patch(`folders/${id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then((res) => {
+      console.log(res);
+      window.location.replace(`/detail/${id}`);
+    })
+    .catch((res) => {
+      console.log(res);
+    });
+};
+export const useEditPostCover = () => {
+  const QueryClient = useQueryClient();
+  return useMutation(editCoverApi, {
     onSuccess: () => {
       QueryClient.invalidateQueries(['detail']);
     },
